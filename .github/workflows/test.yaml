@@ -13,6 +13,7 @@ jobs:
       matrix:
         features:
           - 1password
+          - postgresql
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -32,6 +33,7 @@ jobs:
       matrix:
         features:
           - 1password
+          - postgresql
     steps:
       - uses: actions/checkout@v3
 
