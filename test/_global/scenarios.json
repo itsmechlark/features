@@ -1,13 +1,8 @@
 {
-    "color_and_hello": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "all_the_clis": {
+        "image": "ubuntu:focal",
         "features": {
-            "color": {
-                "favorite": "purple"
-            },
-            "hello": {
-                "greeting": "Greetings"
-            }
+            "1password": {}
         }
     }
 }

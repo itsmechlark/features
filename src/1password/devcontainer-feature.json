@@ -1,0 +1,29 @@
+{
+    "name": "1password",
+    "id": "1password",
+    "version": "1.0.0",
+    "description": "1Password CLI allows you to automate administrative tasks, securely provision secrets across development environments, and use biometrics to authenticate in the terminal.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "none",
+                "2.16.0",
+                "2.14.0"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of 1Password CLI."
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "1Password.op-vscode"
+        ]
+      }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
