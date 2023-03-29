@@ -1,8 +1,11 @@
 {
-    "hello": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "version": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
         "features": {
-            "1password": {}
+            "1password": {
+                "version": "2.16.0"
+            }
         }
     }
 }
