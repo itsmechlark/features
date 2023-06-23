@@ -4,7 +4,7 @@
         "user": "vscode",
         "features": {
             "postgresql": {
-                "version": "15.2"
+                "version": "15"
             }
         }
     }

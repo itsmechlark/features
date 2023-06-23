@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 CLI_VERSION=${VERSION:-"latest"}
-CLI_ARCHIVE_ARCHITECTURES="386 amd64 arm arm64"
-CLI_ARCHIVE_VERSION_CODENAMES="stretch buster bionic focal bullseye jammy"
+CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
+CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
 
 apt_get_update()
 {
