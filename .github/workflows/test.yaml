@@ -13,6 +13,7 @@ jobs:
       matrix:
         features:
           - 1password
+          - doppler
           - postgresql
         baseImage:
           - debian:latest
@@ -33,6 +34,7 @@ jobs:
       matrix:
         features:
           - 1password
+          - doppler
           - postgresql
     steps:
       - uses: actions/checkout@v3

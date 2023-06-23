@@ -1,0 +1,26 @@
+{
+    "name": "doppler",
+    "id": "doppler",
+    "version": "1.0.0",
+    "description": "Install the Doppler CLI in local development and production environments.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of Doppler CLI."
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "doppler.doppler-vscode"
+        ]
+      }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
