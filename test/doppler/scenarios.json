@@ -3,8 +3,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
-            "postgresql": {
-                "version": "15"
+            "doppler": {
+                "version": "3.62"
             }
         }
     }

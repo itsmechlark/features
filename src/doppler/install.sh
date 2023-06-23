@@ -22,17 +22,12 @@ check_packages() {
 
 install_using_apt() {
     # Install dependencies
-    check_packages apt-transport-https curl ca-certificates gnupg2 dirmngr
+    check_packages apt-transport-https ca-certificates curl gnupg
 
-    # Add the key for the 1Password Apt repository
-    curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-    # Add the 1Password Apt repository
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | tee /etc/apt/sources.list.d/1password.list
-    # Add the debsig-verify policy
-    mkdir -p /etc/debsig/policies/AC2D62742012EA22/ \
-        && curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | tee /etc/debsig/policies/AC2D62742012EA22/1password.pol \
-        && mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22 \
-        && curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    # Import the repository signing key
+    curl -sS https://packages.doppler.com/public/cli/gpg.DE2A7741A397C129.key | gpg --dearmor --output /usr/share/keyrings/doppler-archive-keyring.gpg
+     # Create the file repository configuration
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/doppler-archive-keyring.gpg] https://packages.doppler.com/public/cli/deb/debian any-version main" > /etc/apt/sources.list.d/doppler.list
 
     # Update lists
     apt-get update -yq
@@ -40,18 +35,21 @@ install_using_apt() {
     # Soft version matching for CLI
     if [ "${CLI_VERSION}" = "latest" ] || [ "${CLI_VERSION}" = "lts" ] || [ "${CLI_VERSION}" = "stable" ]; then
         # Empty, meaning grab whatever "latest" is in apt repo
+        version_major=""
         version_suffix=""
-    else    
-        version_suffix="=$(apt-cache madison 1password-cli | awk -F"|" '{print $2}' | sed -e 's/^[ \t]*//' | grep -E -m 1 "^(${CLI_VERSION})(\.|$|\+.*|-.*)")"
+    else
+        version_major="-$(echo "${CLI_VERSION}" | grep -oE -m 1 "^([0-9]+)")"
+        version_suffix="=$(apt-cache show doppler${version_major} | awk -F"Version: " '{print $2}' | sed -z "s/\n//g" | grep -E -m 1 "^(${CLI_VERSION})(\.|$|\+.*|-.*)")"
 
         if [ -z ${version_suffix} ] || [ ${version_suffix} = "=" ]; then
             echo "Provided CLI_VERSION (${CLI_VERSION}) was not found in the apt-cache for this package+distribution combo";
             return 1
         fi
+        echo "version_major ${version_major}"
         echo "version_suffix ${version_suffix}"
     fi
 
-    apt-get install -yq 1password-cli${version_suffix} || return 1
+    apt-get install -yq doppler${version_major}${version_suffix} || return 1
 }
 
 export DEBIAN_FRONTEND=noninteractive

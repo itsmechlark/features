@@ -9,7 +9,7 @@
             "proposals": [
                 "latest",
                 "none",
-                "2.16.0"
+                "2.18"
             ],
             "default": "latest",
             "description": "Select or enter a version of 1Password CLI."
