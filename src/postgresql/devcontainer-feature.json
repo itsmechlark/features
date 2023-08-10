@@ -1,7 +1,7 @@
 {
     "name": "postgresql",
     "id": "postgresql",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.",
     "options": {
         "version": {
@@ -25,6 +25,7 @@
     ],
     "containerEnv": {
       "PGDATA": "/var/lib/postgresql/data",
+      "PGHOST": "localhost",
       "PGUSER": "postgres"
     },
     "entrypoint": "/usr/local/share/pq-init.sh",
