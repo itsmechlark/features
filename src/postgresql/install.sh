@@ -3,6 +3,40 @@
 PG_VERSION=${VERSION:-"latest"}
 PG_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
 PG_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
+USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
+
+# Default: Exit on any failure.
+set -e
+
+# Clean up
+rm -rf /var/lib/apt/lists/*
+
+# Setup STDERR.
+err() {
+    echo "(!) $*" >&2
+}
+
+if [ "$(id -u)" -ne 0 ]; then
+    err 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+    exit 1
+fi
+
+# Determine the appropriate non-root user
+if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
+    USERNAME=""
+    POSSIBLE_USERS=("vscode" "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+    for CURRENT_USER in "${POSSIBLE_USERS[@]}"; do
+        if id -u ${CURRENT_USER} > /dev/null 2>&1; then
+            USERNAME=${CURRENT_USER}
+            break
+        fi
+    done
+    if [ "${USERNAME}" = "" ]; then
+        USERNAME=root
+    fi
+elif [ "${USERNAME}" = "none" ] || ! id -u ${USERNAME} > /dev/null 2>&1; then
+    USERNAME=root
+fi
 
 apt_get_update()
 {
@@ -20,9 +54,33 @@ check_packages() {
     fi
 }
 
+setup_pq() {
+    tee /usr/local/share/pq-init.sh << 'EOF'
+#!/bin/sh
+set -e
+
+chown -R postgres:postgres $PGDATA \
+    && chmod 777 $PGDATA \
+    && version_major=$(psql --version | sed -z "s/psql (PostgreSQL) //g" | grep -Eo -m 1 "^([0-9]+)" | sed -z "s/-//g") \
+    && echo "data_directory = '$PGDATA'" > /etc/postgresql/${version_major}/main/postgresql.conf \
+    && echo "host all all all trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth-local trust --auth-host scram-sha-256 --no-instructions" \
+    && sudo /etc/init.d/postgresql start \
+    && pg_isready -t 60
+
+set +e
+
+# Execute whatever commands were passed in (if any). This allows us
+# to set this script to ENTRYPOINT while still executing the default CMD.
+exec "$@"
+EOF
+    chmod +x /usr/local/share/pq-init.sh \
+        && chown ${USERNAME}:root /usr/local/share/pq-init.sh
+}
+
 install_using_apt() {
     # Install dependencies
-    check_packages apt-transport-https curl ca-certificates gnupg2 dirmngr
+    check_packages apt-transport-https curl ca-certificates gnupg2 dirmngr sudo
 
     # Import the repository signing key
     curl -sS https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor --output /usr/share/keyrings/pgdg-archive-keyring.gpg
@@ -49,7 +107,8 @@ install_using_apt() {
         echo "version_suffix ${version_suffix}"
     fi
 
-    apt-get install -yq postgresql${version_major}${version_suffix} postgresql-client${version_major} || return 1
+    (apt-get install -yq postgresql${version_major}${version_suffix} postgresql-client${version_major} \
+        && setup_pq) || return 1
 }
 
 export DEBIAN_FRONTEND=noninteractive

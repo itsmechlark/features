@@ -6,7 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" doppler --version | grep 3.62
+check "version" doppler --version | grep 3.65
 
 # Report result
 reportResults
