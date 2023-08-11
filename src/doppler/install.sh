@@ -10,7 +10,7 @@ setup_doppler() {
 set -e
 
 chown -R ${USER}:${USER} /var/lib/doppler \
-    && chmod 700 /var/lib/doppler
+    && chmod 777 /var/lib/doppler
 
 set +e
 
