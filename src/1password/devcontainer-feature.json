@@ -1,14 +1,13 @@
 {
-    "name": "1password",
+    "name": "1Password CLI",
     "id": "1password",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "1Password CLI allows you to automate administrative tasks, securely provision secrets across development environments, and use biometrics to authenticate in the terminal.",
     "options": {
         "version": {
             "type": "string",
             "proposals": [
                 "latest",
-                "none",
                 "2.18"
             ],
             "default": "latest",

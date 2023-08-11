@@ -1,7 +1,7 @@
 {
-    "name": "doppler",
+    "name": "Doppler CLI",
     "id": "doppler",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Install the Doppler CLI in local development and production environments.",
     "customizations": {
       "vscode": {
