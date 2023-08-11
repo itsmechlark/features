@@ -1,16 +1,41 @@
 {
-    "name": "Doppler CLI",
-    "id": "doppler",
-    "version": "2.0.1",
-    "description": "Install the Doppler CLI in local development and production environments.",
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "doppler.doppler-vscode"
-        ]
-      }
-    },
-    "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils"
-    ]
+  "name": "Doppler CLI",
+  "id": "doppler",
+  "version": "2.1.0",
+  "description": "Install the Doppler CLI in local development and production environments.",
+  "options": {
+    "version": {
+      "type": "string",
+      "proposals": [
+        "latest",
+        "3.65",
+        "3.64",
+        "3.63",
+        "3.62",
+        "3.61"
+      ],
+      "default": "latest",
+      "description": "Select or enter a version of Doppler CLI."
+    }
+  },
+  "mounts": [
+    {
+      "source": "dind-var-lib-doppler-${devcontainerId}",
+      "target": "/var/lib/doppler",
+      "type": "volume"
+    }
+  ],
+  "containerEnv": {
+    "DOPPLER_CONFIG_DIR": "/var/lib/doppler"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "doppler.doppler-vscode"
+      ]
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
 }

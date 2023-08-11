@@ -3,7 +3,9 @@
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
-            "doppler": {}
+            "doppler": {
+                "version": "3.65"
+            }
         }
     }
 }

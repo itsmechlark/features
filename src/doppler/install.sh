@@ -4,6 +4,24 @@ CLI_VERSION=${VERSION:-"latest"}
 CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
 CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
 
+setup_doppler() {
+    tee /usr/local/share/doppler-init.sh << 'EOF'
+#!/bin/sh
+set -e
+
+chown -R ${USER}:${USER} /var/lib/doppler \
+    && chmod 700 /var/lib/doppler
+
+set +e
+
+# Execute whatever commands were passed in (if any). This allows us
+# to set this script to ENTRYPOINT while still executing the default CMD.
+exec "$@"
+EOF
+    chmod +x /usr/local/share/doppler-init.sh \
+        && chown ${USERNAME}:root /usr/local/share/doppler-init.sh
+}
+
 apt_get_update()
 {
     if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
@@ -39,7 +57,7 @@ install_using_apt() {
         version_suffix=""
     else
         version_major="-$(echo "${CLI_VERSION}" | grep -oE -m 1 "^([0-9]+)")"
-        version_suffix="=$(apt-cache show doppler${version_major} | awk -F"Version: " '{print $2}' | sed -z "s/\n//g" | grep -E -m 1 "^(${CLI_VERSION})(\.|$|\+.*|-.*)")"
+        version_suffix="=$(apt-cache show doppler | awk -F"Version: " '{print $2}' | grep -E -m 1 "^(${CLI_VERSION})(\.|$|\+.*|-.*)")"
 
         if [ -z ${version_suffix} ] || [ ${version_suffix} = "=" ]; then
             echo "Provided CLI_VERSION (${CLI_VERSION}) was not found in the apt-cache for this package+distribution combo";
@@ -49,7 +67,7 @@ install_using_apt() {
         echo "version_suffix ${version_suffix}"
     fi
 
-    apt-get install -yq doppler${version_major}${version_suffix} || return 1
+    (apt-get install -yq doppler${version_suffix} && setup_doppler) || return 1
 }
 
 export DEBIAN_FRONTEND=noninteractive
