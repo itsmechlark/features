@@ -63,7 +63,8 @@ chown -R postgres:postgres $PGDATA \
     && chmod 0750 $PGDATA \
     && version_major=$(psql --version | sed -z "s/psql (PostgreSQL) //g" | grep -Eo -m 1 "^([0-9]+)" | sed -z "s/-//g") \
     && echo "data_directory = '$PGDATA'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
-    && echo "host all all all trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "host   all all 127.0.0.1/32    trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "host   all all ::1/128 trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
     && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth-local trust --auth-host scram-sha-256 --no-instructions" \
     && sudo /etc/init.d/postgresql start \
     && pg_isready -t 60
