@@ -2,7 +2,8 @@
     "all_the_clis": {
         "image": "ubuntu:focal",
         "features": {
-            "1password": {}
+            "1password": {},
+            "doppler": {}
         }
     }
 }
