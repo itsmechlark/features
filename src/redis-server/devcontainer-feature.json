@@ -1,0 +1,36 @@
+{
+    "name": "Redis Server",
+    "id": "redis-server",
+    "version": "1.0.0",
+    "description": "The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "7"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of Redis."
+        }
+    },
+    "mounts": [
+      {
+        "source": "dind-var-lib-redis-server-${devcontainerId}",
+        "target": "/var/lib/redis-server/data",
+        "type": "volume"
+      }
+    ],
+    "entrypoint": "/usr/local/share/redis-server-init.sh",
+    "privileged": true,
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "cweijan.vscode-redis-client"
+        ]
+      }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

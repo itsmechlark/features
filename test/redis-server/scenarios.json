@@ -1,0 +1,11 @@
+{
+    "version_7": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "redis-server": {
+                "version": "7"
+            }
+        }
+    }
+}

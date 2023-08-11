@@ -16,6 +16,7 @@ jobs:
           - 1password
           - doppler
           - postgresql
+          - redis-server
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -38,6 +39,7 @@ jobs:
           - 1password
           - doppler
           - postgresql
+          - redis-server
     steps:
       - uses: actions/checkout@v3
 

@@ -5,5 +5,12 @@
             "1password": {},
             "doppler": {}
         }
+    },
+    "all_the_db": {
+        "image": "ubuntu:focal",
+        "features": {
+            "postgresql": {},
+            "redis-server": {}
+        }
     }
 }
