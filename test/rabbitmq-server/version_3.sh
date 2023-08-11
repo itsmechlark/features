@@ -6,9 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "check for redis-server" redis-server --version
-check "check for psql" psql --version
-check "check for rabbitmqctl" rabbitmqctl --version
+check "cli" which rabbitmqctl
 
 # Report result
 reportResults

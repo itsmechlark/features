@@ -1,0 +1,11 @@
+{
+    "version_3": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "rabbitmq-server": {
+                "version": "3"
+            }
+        }
+    }
+}

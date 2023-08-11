@@ -1,0 +1,28 @@
+{
+    "name": "RabbitMQ Server",
+    "id": "rabbitmq-server",
+    "version": "1.0.0",
+    "description": "RabbitMQ is a feature rich, multi-protocol messaging and streaming broker.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "3"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of RabbitMQ."
+        }
+    },
+    "mounts": [
+      {
+        "source": "dind-var-lib-rabbitmq-${devcontainerId}",
+        "target": "/var/lib/rabbitmq",
+        "type": "volume"
+      }
+    ],
+    "entrypoint": "/usr/local/share/rabbitmq-server-init.sh",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
