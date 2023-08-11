@@ -93,14 +93,37 @@ install_using_apt() {
     elif [ "${VERSION_CODENAME}" = "bionic" ]; then
         RABBITMQ_DISTRIBUTION=bionic
     elif [ "${RABBITMQ_OS}" = "debian" ] || [ "${ID_LIKE}" = "debian" ]; then
-        RABBITMQ_DISTRIBUTION=bionic
+        RABBITMQ_DISTRIBUTION=bullseye
     fi
 
     # Create the file repository configuration
-    sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
+    ## Add apt repositories maintained by Team RabbitMQ
+    if [ "${RABBITMQ_OS}" = "ubuntu" ]; then
+        sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
 deb [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu ${RABBITMQ_DISTRIBUTION} main
 deb-src [signed-by=/usr/share/keyrings/net.launchpad.ppa.rabbitmq.erlang.gpg] http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu ${RABBITMQ_DISTRIBUTION} main
 EOF
+    else
+        sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
+## Provides modern Erlang/OTP releases
+##
+deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+
+# another mirror for redundancy
+deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+
+## Provides RabbitMQ
+##
+deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+
+# another mirror for redundancy
+deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+EOF
+    fi
 
     # Update lists
     apt-get update -yq
