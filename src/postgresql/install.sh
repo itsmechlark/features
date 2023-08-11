@@ -60,7 +60,7 @@ setup_pq() {
 set -e
 
 chown -R postgres:postgres $PGDATA \
-    && chmod 777 $PGDATA \
+    && chmod 0750 $PGDATA \
     && version_major=$(psql --version | sed -z "s/psql (PostgreSQL) //g" | grep -Eo -m 1 "^([0-9]+)" | sed -z "s/-//g") \
     && echo "data_directory = '$PGDATA'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
     && echo "host all all all trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
