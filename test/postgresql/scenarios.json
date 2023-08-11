@@ -1,5 +1,41 @@
 {
-    "version": {
+    "version_11": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "11"
+            }
+        }
+    },
+    "version_12": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "12"
+            }
+        }
+    },
+    "version_13": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "13"
+            }
+        }
+    },
+    "version_14": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "14"
+            }
+        }
+    },
+    "version_15": {
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {

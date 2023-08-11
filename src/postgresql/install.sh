@@ -2,7 +2,7 @@
 
 PG_VERSION=${VERSION:-"latest"}
 PG_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-PG_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
+PG_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster sid bionic focal jammy kinetic"
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
 # Default: Exit on any failure.
@@ -97,7 +97,7 @@ install_using_apt() {
         version_suffix=""
     else
         version_major="-$(echo "${PG_VERSION}" | grep -oE -m 1 "^([0-9]+)")"
-        version_suffix="=$(apt-cache show postgresql${version_major} | awk -F"Version: " '{print $2}' | sed -z "s/\n//g" | grep -E -m 1 "^(${PG_VERSION})(\.|$|\+.*|-.*)")"
+        version_suffix="=$(apt-cache show postgresql${version_major} | awk -F"Version: " '{print $2}' | grep -E -m 1 "^(${PG_VERSION})(\.|$|\+.*|-.*)")"
 
         if [ -z ${version_suffix} ] || [ ${version_suffix} = "=" ]; then
             echo "Provided PG_VERSION (${PG_VERSION}) was not found in the apt-cache for this package+distribution combo";
