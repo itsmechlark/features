@@ -65,7 +65,7 @@ chown -R postgres:postgres $PGDATA \
     && echo "data_directory = '$PGDATA'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
     && echo "host   all all 127.0.0.1/32    trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
     && echo "host   all all ::1/128 trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
-    && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth-local trust --auth-host scram-sha-256 --no-instructions" \
+    && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth-local trust --auth-host scram-sha-256" \
     && sudo /etc/init.d/postgresql start \
     && pg_isready -t 60
 
