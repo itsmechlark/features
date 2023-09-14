@@ -1,0 +1,30 @@
+{
+    "name": "Trivy",
+    "id": "trivy",
+    "version": "1.0.0",
+    "description": "Trivy is the most popular open source security scanner, reliable, fast, and easy to use. Use Trivy to find vulnerabilities & IaC misconfigurations, SBOM discovery, Cloud scanning, Kubernetes security risks,and more.",
+    "documentationURL": "https://github.com/itsmechlark/features/tree/main/src/trivy",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "0.45",
+                "0.44",
+                "0.43"
+            ],
+            "default": "latest",
+            "description": "Select or enter trivy version"
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "aquasecurityofficial.trivy-vulnerability-scanner"
+        ]
+      }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

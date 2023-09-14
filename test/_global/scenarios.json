@@ -3,7 +3,8 @@
         "image": "ubuntu:focal",
         "features": {
             "1password": {},
-            "doppler": {}
+            "doppler": {},
+            "trivy": {}
         }
     },
     "all_the_db": {

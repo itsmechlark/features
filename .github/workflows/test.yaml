@@ -18,6 +18,7 @@ jobs:
           - postgresql
           - rabbitmq-server
           - redis-server
+          - trivy
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -42,6 +43,7 @@ jobs:
           - postgresql
           - rabbitmq-server
           - redis-server
+          - trivy
     steps:
       - uses: actions/checkout@v3
 
