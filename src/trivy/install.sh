@@ -65,7 +65,7 @@ find_version_from_git_tags() {
 }
 
 # Install dependencies
-check_packages curl git tar
+check_packages curl ca-certificates git tar
 
 architecture="$(uname -m)"
 case $architecture in
