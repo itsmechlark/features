@@ -3,6 +3,7 @@
         "image": "ubuntu:focal",
         "features": {
             "1password": {},
+            "act": {},
             "doppler": {},
             "trivy": {}
         }
