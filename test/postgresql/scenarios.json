@@ -43,5 +43,14 @@
                 "version": "15"
             }
         }
+    },
+    "version_16": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "16"
+            }
+        }
     }
 }
