@@ -19,6 +19,7 @@ jobs:
           - postgresql
           - rabbitmq-server
           - redis-server
+          - snowflake-odbc
           - trivy
         baseImage:
           - debian:latest
@@ -45,6 +46,7 @@ jobs:
           - postgresql
           - rabbitmq-server
           - redis-server
+          - snowflake-odbc
           - trivy
     steps:
       - uses: actions/checkout@v3

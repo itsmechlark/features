@@ -8,7 +8,7 @@
             "type": "string",
             "proposals": [
                 "latest",
-                "2.18"
+                "2.23"
             ],
             "default": "latest",
             "description": "Select or enter a version of 1Password CLI."
