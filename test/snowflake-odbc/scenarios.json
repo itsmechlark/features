@@ -1,0 +1,20 @@
+{
+    "version_3_1_0": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "snowflake-odbc": {
+                "version": "3.1.0"
+            }
+        }
+    },
+    "version_3_0_1": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "snowflake-odbc": {
+                "version": "3.0.1"
+            }
+        }
+    }
+}
