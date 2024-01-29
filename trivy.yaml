@@ -1,0 +1,9 @@
+timeout: 10m
+dependency-tree: true
+list-all-pkgs: true
+exit-code: 1
+scan:
+  skip-dirs:
+    - test
+  skip-files:
+    - .env*
