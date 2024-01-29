@@ -1,11 +1,12 @@
 {
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-    "include-component-in-tag": false,
+    "include-component-in-tag": true,
     "include-v-in-tag": true,
     "release-type": "simple",
     "packages": {
         ".": {
-            "package-name": "features"
+            "package-name": "features",
+            "include-component-in-tag": false
         },
         "src/1password": {
             "package-name": "1password",
