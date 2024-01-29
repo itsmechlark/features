@@ -39,7 +39,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Validate devcontainer-feature.json files"
         uses: devcontainers/action@v1
@@ -67,7 +67,7 @@ jobs:
           - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -91,7 +91,7 @@ jobs:
           - snowflake-odbc
           - trivy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [audit, validate]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
