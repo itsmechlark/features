@@ -1,8 +1,8 @@
 {
-    ".": "1.4.0",
+    ".": "1.4.1",
     "src/1password": "1.0.2",
     "src/act": "1.0.0",
-    "src/doppler": "2.1.1",
+    "src/doppler": "2.1.2",
     "src/postgresql": "1.4.0",
     "src/rabbitmq-server": "1.0.0",
     "src/redis-server": "1.0.1",
