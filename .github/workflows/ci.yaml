@@ -12,7 +12,6 @@ permissions:
 jobs:
 
   audit:
-    name: Audit
     runs-on: ubuntu-latest
     permissions:
       actions: read
