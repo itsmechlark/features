@@ -1,0 +1,59 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+    "include-component-in-tag": false,
+    "include-v-in-tag": true,
+    "release-type": "simple",
+    "packages": {
+        ".": {
+            "package-name": "features"
+        },
+        "src/1password": {
+            "package-name": "1password",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/act": {
+            "package-name": "act",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/doppler": {
+            "package-name": "doppler",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/postgresql": {
+            "package-name": "postgresql",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/rabbitmq-server": {
+            "package-name": "rabbitmq-server",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/redis-server": {
+            "package-name": "redis-server",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/snowflake-odbc": {
+            "package-name": "snowflake-odbc",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
+        "src/trivy": {
+            "package-name": "trivy",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        }
+    }
+}
