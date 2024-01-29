@@ -4,15 +4,30 @@ CLI_VERSION=${VERSION:-"latest"}
 CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
 CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
 
+# Determine the appropriate non-root user
+if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
+    USERNAME=""
+    POSSIBLE_USERS=("vscode" "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+    for CURRENT_USER in "${POSSIBLE_USERS[@]}"; do
+        if id -u ${CURRENT_USER} > /dev/null 2>&1; then
+            USERNAME=${CURRENT_USER}
+            break
+        fi
+    done
+    if [ "${USERNAME}" = "" ]; then
+        USERNAME=root
+    fi
+elif [ "${USERNAME}" = "none" ] || ! id -u ${USERNAME} > /dev/null 2>&1; then
+    USERNAME=root
+fi
+
 setup_doppler() {
-    tee /usr/local/share/doppler-init.sh << 'EOF'
-#!/bin/sh
-set -e
+    cat << EOF > /usr/local/share/doppler-init.sh
+#!/bin/bash
 
-chown -R ${USER}:${USER} /var/lib/doppler \
-    && chmod 777 /var/lib/doppler
-
-set +e
+chown -R ${_REMOTE_USER}:${_REMOTE_USER} /var/lib/doppler \
+    && chmod 740 /var/lib/doppler \
+    && mkdir ${_REMOTE_USER_HOME}/.doppler
 
 # Execute whatever commands were passed in (if any). This allows us
 # to set this script to ENTRYPOINT while still executing the default CMD.
