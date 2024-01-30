@@ -27,7 +27,9 @@ setup_doppler() {
 
 chown -R ${_REMOTE_USER}:${_REMOTE_USER} /var/lib/doppler \
     && chmod 740 /var/lib/doppler \
-    && mkdir ${_REMOTE_USER_HOME}/.doppler
+    && mkdir ${_REMOTE_USER_HOME}/.doppler \
+    && chown -R ${_REMOTE_USER}:${_REMOTE_USER} ${_REMOTE_USER_HOME}/.doppler \
+    && chmod 740 ${_REMOTE_USER_HOME}/.doppler
 
 # Execute whatever commands were passed in (if any). This allows us
 # to set this script to ENTRYPOINT while still executing the default CMD.
