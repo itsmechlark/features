@@ -1,5 +1,14 @@
 {
-    "version_3_2_0": {
+    "version_3_3": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "snowflake-odbc": {
+                "version": "3.3.1"
+            }
+        }
+    },
+    "version_3_2": {
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
@@ -8,7 +17,7 @@
             }
         }
     },
-    "version_3_1_0": {
+    "version_3_1": {
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
@@ -17,7 +26,7 @@
             }
         }
     },
-    "version_3_0_1": {
+    "version_3_0": {
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
