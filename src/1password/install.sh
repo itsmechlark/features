@@ -2,7 +2,7 @@
 
 CLI_VERSION=${VERSION:-"latest"}
 CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386"
-CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic"
+CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic noble"
 
 apt_get_update()
 {
@@ -41,7 +41,7 @@ install_using_apt() {
     if [ "${CLI_VERSION}" = "latest" ] || [ "${CLI_VERSION}" = "lts" ] || [ "${CLI_VERSION}" = "stable" ]; then
         # Empty, meaning grab whatever "latest" is in apt repo
         version_suffix=""
-    else    
+    else
         version_suffix="=$(apt-cache madison 1password-cli | awk -F"|" '{print $2}' | sed -e 's/^[ \t]*//' | grep -E -m 1 "^(${CLI_VERSION})(\.|$|\+.*|-.*)")"
 
         if [ -z ${version_suffix} ] || [ ${version_suffix} = "=" ]; then

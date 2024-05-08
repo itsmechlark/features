@@ -2,7 +2,7 @@
 
 PG_VERSION=${VERSION:-"latest"}
 PG_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-PG_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster sid bionic focal jammy kinetic"
+PG_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster sid bionic focal jammy kinetic noble"
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
 # Default: Exit on any failure.

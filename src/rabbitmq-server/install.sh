@@ -2,7 +2,7 @@
 
 RABBITMQ_VERSION=${VERSION:-"latest"}
 RABBITMQ_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-RABBITMQ_ARCHIVE_VERSION_CODENAMES="bookworm bullseye sid focal jammy lunar bionic"
+RABBITMQ_ARCHIVE_VERSION_CODENAMES="bookworm bullseye sid focal jammy lunar bionic noble"
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
 # Default: Exit on any failure.
