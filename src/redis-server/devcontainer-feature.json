@@ -15,20 +15,20 @@
         }
     },
     "mounts": [
-      {
-        "source": "dind-var-lib-redis-server-${devcontainerId}",
-        "target": "/var/lib/redis-server/data",
-        "type": "volume"
-      }
+        {
+            "source": "dind-var-lib-redis-server-${devcontainerId}",
+            "target": "/var/lib/redis-server/data",
+            "type": "volume"
+        }
     ],
     "entrypoint": "/usr/local/share/redis-server-init.sh",
     "privileged": true,
     "customizations": {
-      "vscode": {
-        "extensions": [
-          "cweijan.vscode-redis-client"
-        ]
-      }
+        "vscode": {
+            "extensions": [
+                "cweijan.vscode-redis-client"
+            ]
+        }
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

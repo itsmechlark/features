@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/itsmechlark/features/compare/doppler-v2.1.3...doppler-v2.2.0) (2024-05-08)
+
+
+### Features
+
+* Support `noble` ubuntu ([c2a251a](https://github.com/itsmechlark/features/commit/c2a251aafc58c1d121cd6f07e36d4031921ee219))
+
 ## [2.1.3](https://github.com/itsmechlark/features/compare/doppler-v2.1.2...doppler-v2.1.3) (2024-01-30)
 
 
