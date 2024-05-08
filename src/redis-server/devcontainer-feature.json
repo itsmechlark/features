@@ -1,7 +1,7 @@
 {
     "name": "Redis Server",
     "id": "redis-server",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "The open source, in-memory data store used by millions of developers as a database, cache, streaming engine, and message broker.",
     "options": {
         "version": {

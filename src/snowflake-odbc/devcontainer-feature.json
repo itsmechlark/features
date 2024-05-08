@@ -1,7 +1,7 @@
 {
     "name": "Snowflake ODBC",
     "id": "snowflake-odbc",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Snowflake provides a driver for connecting to Snowflake using ODBC-based client applications.",
     "documentationURL": "https://github.com/itsmechlark/features/tree/main/src/snowflake-odbc",
     "options": {
