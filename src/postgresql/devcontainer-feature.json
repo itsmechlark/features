@@ -1,7 +1,7 @@
 {
     "name": "PostgreSQL",
     "id": "postgresql",
-    "version": "1.6.0",
+    "version": "1.5.0",
     "description": "PostgreSQL is a powerful, open source object-relational database system with over 35 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.",
     "options": {
         "version": {
@@ -20,25 +20,25 @@
         }
     },
     "mounts": [
-      {
-        "source": "dind-var-lib-postgresql-${devcontainerId}",
-        "target": "/var/lib/postgresql/data",
-        "type": "volume"
-      }
+        {
+            "source": "dind-var-lib-postgresql-${devcontainerId}",
+            "target": "/var/lib/postgresql/data",
+            "type": "volume"
+        }
     ],
     "containerEnv": {
-      "PGDATA": "/var/lib/postgresql/data",
-      "PGHOST": "localhost",
-      "PGUSER": "postgres"
+        "PGDATA": "/var/lib/postgresql/data",
+        "PGHOST": "localhost",
+        "PGUSER": "postgres"
     },
     "entrypoint": "/usr/local/share/pq-init.sh",
     "privileged": true,
     "customizations": {
-      "vscode": {
-        "extensions": [
-          "ms-ossdata.vscode-postgresql"
-        ]
-      }
+        "vscode": {
+            "extensions": [
+                "ms-ossdata.vscode-postgresql"
+            ]
+        }
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

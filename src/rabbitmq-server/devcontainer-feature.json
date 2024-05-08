@@ -15,11 +15,11 @@
         }
     },
     "mounts": [
-      {
-        "source": "dind-var-lib-rabbitmq-${devcontainerId}",
-        "target": "/var/lib/rabbitmq",
-        "type": "volume"
-      }
+        {
+            "source": "dind-var-lib-rabbitmq-${devcontainerId}",
+            "target": "/var/lib/rabbitmq",
+            "type": "volume"
+        }
     ],
     "entrypoint": "/usr/local/share/rabbitmq-server-init.sh",
     "installsAfter": [

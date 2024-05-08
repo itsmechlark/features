@@ -15,11 +15,11 @@
         }
     },
     "customizations": {
-      "vscode": {
-        "extensions": [
-          "1Password.op-vscode"
-        ]
-      }
+        "vscode": {
+            "extensions": [
+                "1Password.op-vscode"
+            ]
+        }
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"
