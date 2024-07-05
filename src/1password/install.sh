@@ -2,7 +2,7 @@
 
 CLI_VERSION=${VERSION:-"latest"}
 CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386"
-CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic noble"
+CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal mantic jammy kinetic noble"
 
 apt_get_update()
 {
