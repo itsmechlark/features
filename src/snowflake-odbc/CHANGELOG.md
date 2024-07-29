@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/itsmechlark/features/compare/snowflake-odbc-v1.1.0...snowflake-odbc-v1.2.0) (2024-07-29)
+
+
+### Features
+
+* **snowflake-odbc:** Update version options ([3b3889b](https://github.com/itsmechlark/features/commit/3b3889b76b0a2a48931b5725f3e8cc6202f5014a))
+
 ## [1.1.0](https://github.com/itsmechlark/features/compare/snowflake-odbc-v1.0.0...snowflake-odbc-v1.1.0) (2024-05-08)
 
 

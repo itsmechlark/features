@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.6.0](https://github.com/itsmechlark/features/compare/v1.5.0...v1.6.0) (2024-07-29)
+
+
+### Features
+
+* **1password:** Support for mantic ([#23](https://github.com/itsmechlark/features/issues/23)) ([691e4c1](https://github.com/itsmechlark/features/commit/691e4c18c6c829483a5dcad307b326b318ef8423))
+* **1password:** Update version options ([9d2c5a6](https://github.com/itsmechlark/features/commit/9d2c5a682307ed776d9f28a27f066dacf7f901b0))
+* **act:** Update version options ([42638d1](https://github.com/itsmechlark/features/commit/42638d13783dcb24ec1a39fd193228abe51efdfb))
+* **doppler:** Update version options ([daef022](https://github.com/itsmechlark/features/commit/daef0221f7e58126750ca70b327a21f43d4bb306))
+* **snowflake-odbc:** Update version options ([3b3889b](https://github.com/itsmechlark/features/commit/3b3889b76b0a2a48931b5725f3e8cc6202f5014a))
+* **trivy:** Update version options ([7cedacd](https://github.com/itsmechlark/features/commit/7cedacd2cd7ee1da3178e18d98989af3fa08c9f5))
+
 ## [1.5.0](https://github.com/itsmechlark/features/compare/v1.4.2...v1.5.0) (2024-05-08)
 
 
