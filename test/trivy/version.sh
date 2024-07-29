@@ -6,7 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" trivy  --version | grep 0.51
+check "version" trivy  --version | grep 0.53
 
 # Report result
 reportResults
