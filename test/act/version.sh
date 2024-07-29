@@ -6,7 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" act --version | grep 0.2.52
+check "version" act --version | grep 0.2.64
 
 # Report result
 reportResults
