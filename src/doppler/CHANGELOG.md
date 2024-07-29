@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/itsmechlark/features/compare/doppler-v2.2.0...doppler-v2.3.0) (2024-07-29)
+
+
+### Features
+
+* **doppler:** Update version options ([daef022](https://github.com/itsmechlark/features/commit/daef0221f7e58126750ca70b327a21f43d4bb306))
+
 ## [2.2.0](https://github.com/itsmechlark/features/compare/doppler-v2.1.3...doppler-v2.2.0) (2024-05-08)
 
 
