@@ -8,11 +8,8 @@
             "type": "string",
             "proposals": [
                 "latest",
-                "0.2.64",
-                "0.2.63",
-                "0.2.62",
-                "0.2.61",
-                "0.2.60"
+                "0.2.71",
+                "0.2.70"
             ],
             "default": "latest",
             "description": "Select or enter a act version"
