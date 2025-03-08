@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/itsmechlark/features/compare/1password-v1.2.0...1password-v1.3.0) (2025-03-08)
+
+
+### Features
+
+* **1password:** Update version options ([888ecc5](https://github.com/itsmechlark/features/commit/888ecc5e1140405d3239cd3475b6b6a0da9d116d))
+
 ## [1.2.0](https://github.com/itsmechlark/features/compare/1password-v1.1.0...1password-v1.2.0) (2024-07-29)
 
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.7.0](https://github.com/itsmechlark/features/compare/v1.6.0...v1.7.0) (2025-03-08)
+
+
+### Features
+
+* **1password:** Update version options ([888ecc5](https://github.com/itsmechlark/features/commit/888ecc5e1140405d3239cd3475b6b6a0da9d116d))
+* **act:** Update version options ([70f10ab](https://github.com/itsmechlark/features/commit/70f10abc3c9150c01d4062e7ff27e83e064716e2))
+* **doppler:** Update version options ([937a331](https://github.com/itsmechlark/features/commit/937a331772d8a5e3de44a1f9c8654a405a132163))
+
+
+### Bug Fixes
+
+* **postgresql:** Database initialization on creation only ([4d6a1ec](https://github.com/itsmechlark/features/commit/4d6a1eccc7e00873ef783e2e0e9fd3ce6d0016e8))
+
 ## [1.6.0](https://github.com/itsmechlark/features/compare/v1.5.0...v1.6.0) (2024-07-29)
 
 
