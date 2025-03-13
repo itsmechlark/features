@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/itsmechlark/features/compare/v1.7.0...v1.8.0) (2025-03-13)
+
+
+### Features
+
+* **postgresql:** Support v17 ([886de68](https://github.com/itsmechlark/features/commit/886de68f9426c4050d0fed6bd85e67e4e4e47e7b))
+
 ## [1.7.0](https://github.com/itsmechlark/features/compare/v1.6.0...v1.7.0) (2025-03-08)
 
 
