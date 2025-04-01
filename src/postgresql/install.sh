@@ -65,7 +65,7 @@ echo "listen_addresses = '*'" >> /etc/postgresql/${version_major}/main/postgresq
     && echo "data_directory = '$PGDATA'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
     && echo "host   all all 0.0.0.0/0        trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
     && echo "host   all all ::/0             trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
-    && echo "host   all all ::1/128          trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "host   all all ::1/128          trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf
 
 if [ ! -f "$PGDATA/PG_VERSION" ]; then
     echo "Initializing PostgreSQL database..."
