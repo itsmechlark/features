@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/itsmechlark/features/compare/1password-v1.3.0...1password-v1.4.0) (2025-05-08)
+
+
+### Features
+
+* **1password:** Bump to v2.31 ([1a53b3d](https://github.com/itsmechlark/features/commit/1a53b3d584b3ae6da3aa37b03e67479b8dca8747))
+* **1password:** Bump to v2.31 ([c0e31ab](https://github.com/itsmechlark/features/commit/c0e31aba9f66e40603650147ad357a24fdc73041))
+
+
+### Bug Fixes
+
+* **postgresql:** Allow connections after container is recreated ([38286cb](https://github.com/itsmechlark/features/commit/38286cbd669acc58e79732ce20fb71a25ec17ac9))
+
 ## [1.3.0](https://github.com/itsmechlark/features/compare/1password-v1.2.0...1password-v1.3.0) (2025-03-08)
 
 
