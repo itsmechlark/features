@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.1](https://github.com/itsmechlark/features/compare/doppler-v2.4.0...doppler-v2.4.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* **postgresql:** Allow connections after container is recreated ([38286cb](https://github.com/itsmechlark/features/commit/38286cbd669acc58e79732ce20fb71a25ec17ac9))
+
 ## [2.4.0](https://github.com/itsmechlark/features/compare/doppler-v2.3.0...doppler-v2.4.0) (2025-03-08)
 
 
