@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/itsmechlark/features/compare/v1.9.0...v1.10.0) (2025-05-23)
+
+
+### Features
+
+* Use `ms-ossdata.vscode-pgsql` vscode extension ([4552203](https://github.com/itsmechlark/features/commit/4552203b5efac680708478b77b091ff17346e3ea)), closes [#45](https://github.com/itsmechlark/features/issues/45)
+
 ## [1.9.0](https://github.com/itsmechlark/features/compare/v1.8.0...v1.9.0) (2025-05-08)
 
 
