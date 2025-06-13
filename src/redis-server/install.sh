@@ -62,7 +62,7 @@ set -e
 chown -R redis:redis /var/lib/redis-server/data \
     && chmod 0750 /var/lib/redis-server/data \
     && echo "dir /var/lib/redis-server/data" >> /etc/redis/redis.conf \
-    && sudo /etc/init.d/redis-server start
+    && sudo redis-server &&
 
 set +e
 
