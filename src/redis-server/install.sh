@@ -103,7 +103,7 @@ install_using_apt() {
         echo "version_suffix ${version_suffix}"
     fi
 
-    (apt-get install -yq redis-server${version_suffix} \
+    (apt-get install -yq redis-server${version_suffix} redis-tools${version_suffix} \
         && setup_redis) || return 1
 }
 
