@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/itsmechlark/features/compare/doppler-v2.4.1...doppler-v2.5.0) (2025-07-21)
+
+
+### Features
+
+* **doppler:** Bump to v3.75 ([#53](https://github.com/itsmechlark/features/issues/53)) ([91c794c](https://github.com/itsmechlark/features/commit/91c794cd6b8381b5ec6aad4308a477170da7dfae))
+
 ## [2.4.1](https://github.com/itsmechlark/features/compare/doppler-v2.4.0...doppler-v2.4.1) (2025-05-08)
 
 

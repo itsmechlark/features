@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.11.0](https://github.com/itsmechlark/features/compare/v1.10.0...v1.11.0) (2025-07-21)
+
+
+### Features
+
+* **doppler:** Bump to v3.75 ([#53](https://github.com/itsmechlark/features/issues/53)) ([91c794c](https://github.com/itsmechlark/features/commit/91c794cd6b8381b5ec6aad4308a477170da7dfae))
+* **redis-server:** Support v8 ([#52](https://github.com/itsmechlark/features/issues/52)) ([19e74d5](https://github.com/itsmechlark/features/commit/19e74d5bc8d78ebf92e4a371e6afcffa2be565c5))
+
+
+### Bug Fixes
+
+* **redis-server:** Force install redis-tools ([#50](https://github.com/itsmechlark/features/issues/50)) ([033cba5](https://github.com/itsmechlark/features/commit/033cba5070ac288102289c0a87c1aecf8894d86a))
+
 ## [1.10.0](https://github.com/itsmechlark/features/compare/v1.9.0...v1.10.0) (2025-05-23)
 
 
