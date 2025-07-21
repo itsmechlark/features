@@ -1,7 +1,7 @@
 {
   "name": "Doppler CLI",
   "id": "doppler",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "Install the Doppler CLI in local development and production environments.",
   "options": {
     "version": {
