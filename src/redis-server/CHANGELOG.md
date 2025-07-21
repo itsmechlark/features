@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/itsmechlark/features/compare/redis-server-v1.2.0...redis-server-v1.2.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* **redis-server:** Support daemonize start ([#54](https://github.com/itsmechlark/features/issues/54)) ([283ffb2](https://github.com/itsmechlark/features/commit/283ffb21939007b36dc5121fa8baf164f5eb3675))
+
 ## [1.2.0](https://github.com/itsmechlark/features/compare/redis-server-v1.1.1...redis-server-v1.2.0) (2025-07-21)
 
 
