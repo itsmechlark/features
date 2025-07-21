@@ -9,7 +9,9 @@ USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 set -e
 
 # Clean up
-rm -rf /var/lib/apt/lists/*
+if [ -d /var/lib/apt/lists ]; then
+    rm -rf /var/lib/apt/lists/*
+fi
 
 # Setup STDERR.
 err() {
@@ -62,7 +64,7 @@ set -e
 chown -R redis:redis /var/lib/redis-server/data \
     && chmod 0750 /var/lib/redis-server/data \
     && echo "dir /var/lib/redis-server/data" >> /etc/redis/redis.conf \
-    && sudo /etc/init.d/redis-server start
+    && if [ -f "/etc/init.d/redis-server" ]; then sudo /etc/init.d/redis-server start; else redis-server --daemonize yes; fi
 
 set +e
 
