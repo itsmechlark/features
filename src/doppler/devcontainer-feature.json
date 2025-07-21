@@ -8,8 +8,7 @@
       "type": "string",
       "proposals": [
         "latest",
-        "3.71",
-        "3.70"
+        "3.75"
       ],
       "default": "latest",
       "description": "Select or enter a version of Doppler CLI."
