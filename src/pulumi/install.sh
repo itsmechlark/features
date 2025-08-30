@@ -74,7 +74,7 @@ case $architecture in
     *) echo "(!) Architecture $architecture unsupported"; exit 1 ;;
 esac
 
-# Use a temporary locaiton for pulumi archive
+# Use a temporary location for pulumi archive
 export TMP_DIR="/tmp/tmp-pulumi"
 mkdir -p ${TMP_DIR}
 chmod 700 ${TMP_DIR}
