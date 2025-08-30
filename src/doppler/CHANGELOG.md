@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/itsmechlark/features/compare/doppler-v2.5.0...doppler-v2.6.0) (2025-08-30)
+
+
+### Features
+
+* Added `trixie` os release  ([#58](https://github.com/itsmechlark/features/issues/58)) ([cdea902](https://github.com/itsmechlark/features/commit/cdea90299c48f348246e01525fc5b73184f5cf3c))
+
 ## [2.5.0](https://github.com/itsmechlark/features/compare/doppler-v2.4.1...doppler-v2.5.0) (2025-07-21)
 
 

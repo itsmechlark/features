@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/itsmechlark/features/compare/snowflake-odbc-v1.2.1...snowflake-odbc-v1.3.0) (2025-08-30)
+
+
+### Features
+
+* Added `trixie` os release  ([#58](https://github.com/itsmechlark/features/issues/58)) ([cdea902](https://github.com/itsmechlark/features/commit/cdea90299c48f348246e01525fc5b73184f5cf3c))
+
 ## [1.2.1](https://github.com/itsmechlark/features/compare/snowflake-odbc-v1.2.0...snowflake-odbc-v1.2.1) (2025-05-08)
 
 

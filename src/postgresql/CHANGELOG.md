@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://github.com/itsmechlark/features/compare/postgresql-v1.7.0...postgresql-v1.8.0) (2025-08-30)
+
+
+### Features
+
+* Added `trixie` os release  ([#58](https://github.com/itsmechlark/features/issues/58)) ([cdea902](https://github.com/itsmechlark/features/commit/cdea90299c48f348246e01525fc5b73184f5cf3c))
+
+
+### Bug Fixes
+
+* **postgresql:** Update hba config inside data directory ([#60](https://github.com/itsmechlark/features/issues/60)) ([afe9cf1](https://github.com/itsmechlark/features/commit/afe9cf15272ecc25d0ff89131d18883a0faf124d)), closes [#42](https://github.com/itsmechlark/features/issues/42)
+
 ## [1.7.0](https://github.com/itsmechlark/features/compare/postgresql-v1.6.1...postgresql-v1.7.0) (2025-05-23)
 
 

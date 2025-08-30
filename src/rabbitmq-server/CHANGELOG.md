@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/itsmechlark/features/compare/rabbitmq-server-v1.1.1...rabbitmq-server-v1.2.0) (2025-08-30)
+
+
+### Features
+
+* Added `trixie` os release  ([#58](https://github.com/itsmechlark/features/issues/58)) ([cdea902](https://github.com/itsmechlark/features/commit/cdea90299c48f348246e01525fc5b73184f5cf3c))
+
 ## [1.1.1](https://github.com/itsmechlark/features/compare/rabbitmq-server-v1.1.0...rabbitmq-server-v1.1.1) (2025-05-08)
 
 

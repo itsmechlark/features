@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.12.0](https://github.com/itsmechlark/features/compare/v1.11.1...v1.12.0) (2025-08-30)
+
+
+### Features
+
+* Added `trixie` os release  ([#58](https://github.com/itsmechlark/features/issues/58)) ([cdea902](https://github.com/itsmechlark/features/commit/cdea90299c48f348246e01525fc5b73184f5cf3c))
+* Added Pulumi ([#61](https://github.com/itsmechlark/features/issues/61)) ([4c7115f](https://github.com/itsmechlark/features/commit/4c7115f040b072aa61c0404bce560e68e1320b19))
+
+
+### Bug Fixes
+
+* **postgresql:** Update hba config inside data directory ([#60](https://github.com/itsmechlark/features/issues/60)) ([afe9cf1](https://github.com/itsmechlark/features/commit/afe9cf15272ecc25d0ff89131d18883a0faf124d)), closes [#42](https://github.com/itsmechlark/features/issues/42)
+
 ## [1.11.1](https://github.com/itsmechlark/features/compare/v1.11.0...v1.11.1) (2025-07-21)
 
 
