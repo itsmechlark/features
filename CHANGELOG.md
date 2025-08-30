@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/itsmechlark/features/compare/v1.12.0...v1.13.0) (2025-08-30)
+
+
+### Features
+
+* **pulumi:** Persist home data ([#62](https://github.com/itsmechlark/features/issues/62)) ([60d4d90](https://github.com/itsmechlark/features/commit/60d4d90aaba978bd7fb7aa7f0496b429be4891ad))
+
 ## [1.12.0](https://github.com/itsmechlark/features/compare/v1.11.1...v1.12.0) (2025-08-30)
 
 

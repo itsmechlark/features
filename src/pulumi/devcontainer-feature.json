@@ -1,7 +1,7 @@
 {
     "name": "pulumi",
     "id": "pulumi",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Infrastructure as Code in any programming language 🚀",
     "options": {
         "version": {
