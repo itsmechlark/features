@@ -63,15 +63,21 @@ version_major=$(psql --version | sed -z "s/psql (PostgreSQL) //g" | grep -Eo -m 
 
 echo "listen_addresses = '*'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
     && echo "data_directory = '$PGDATA'" >> /etc/postgresql/${version_major}/main/postgresql.conf \
-    && echo "host   all all 0.0.0.0/0        trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
-    && echo "host   all all ::/0             trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
-    && echo "host   all all ::1/128          trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf
+    && echo "host    all all 0.0.0.0/0        trust" > /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "host    all all ::/0             trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "host    all all ::1/128          trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf \
+    && echo "local   all all                  trust" >> /etc/postgresql/${version_major}/main/pg_hba.conf
 
 if [ ! -f "$PGDATA/PG_VERSION" ]; then
     echo "Initializing PostgreSQL database..."
     chown -R postgres:postgres $PGDATA \
         && chmod 0750 $PGDATA \
-        && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth-local trust --auth-host scram-sha-256"
+        && sudo -H -u postgres sh -c "/usr/lib/postgresql/${version_major}/bin/initdb -D $PGDATA --auth trust --auth-local trust --auth-host trust" \
+        && echo "listen_addresses = '*'" >> $PGDATA/postgresql.conf \
+        && echo "host    all all 0.0.0.0/0        trust" > $PGDATA/pg_hba.conf \
+        && echo "host    all all ::/0             trust" >> $PGDATA/pg_hba.conf \
+        && echo "host    all all ::1/128          trust" >> $PGDATA/pg_hba.conf \
+        && echo "local   all all                  trust" >> $PGDATA/pg_hba.conf
 else
     echo "PostgreSQL database already initialized, skipping initialization"
 fi
