@@ -2,7 +2,7 @@
 
 REDIS_SERVER_VERSION=${VERSION:-"latest"}
 REDIS_SERVER_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-REDIS_SERVER_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster sid bionic focal jammy kinetic noble"
+REDIS_SERVER_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster sid bionic focal jammy kinetic noble trixie"
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
 # Default: Exit on any failure.
