@@ -2,7 +2,7 @@
 
 SNOWFLAKE_VERSION=${VERSION:-"3.1.0"}
 SNOWFLAKE_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-SNOWFLAKE_ARCHIVE_VERSION_CODENAMES="bookworm bullseye sid focal jammy lunar bionic noble"
+SNOWFLAKE_ARCHIVE_VERSION_CODENAMES="bookworm bullseye sid focal jammy lunar bionic noble trixie"
 SNOWFLAKE_GPG_KEY_ID="630D9F3CAB551AF3"
 USERNAME="${USERNAME:-"${_REMOTE_USER:-"automatic"}"}"
 
