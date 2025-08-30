@@ -63,7 +63,7 @@ set -e
 
 chown -R redis:redis /var/lib/redis-server/data \
     && chmod 0750 /var/lib/redis-server/data \
-    && echo "dir /var/lib/redis-server/data" >> /etc/redis/redis.conf \
+    && grep -qxF "dir /var/lib/redis-server/data" /etc/redis/redis.conf || echo "dir /var/lib/redis-server/data" >> /etc/redis/redis.conf \
     && if [ -f "/etc/init.d/redis-server" ]; then sudo /etc/init.d/redis-server start; else redis-server --daemonize yes; fi
 
 set +e
