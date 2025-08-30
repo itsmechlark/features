@@ -1,0 +1,29 @@
+{
+    "name": "pulumi",
+    "id": "pulumi",
+    "version": "1.0.0",
+    "description": "Infrastructure as Code in any programming language 🚀",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "3.192",
+                "3.191"
+            ],
+            "default": "latest",
+            "description": "Select or enter a pulumi version"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "pulumi.pulumi-vscode-tools",
+                "pulumi.pulumi-vscode-copilot"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

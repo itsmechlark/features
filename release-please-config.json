@@ -33,6 +33,12 @@
                 "devcontainer-feature.json"
             ]
         },
+        "src/pulumi": {
+            "package-name": "pulumi",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
         "src/rabbitmq-server": {
             "package-name": "rabbitmq-server",
             "extra-files": [

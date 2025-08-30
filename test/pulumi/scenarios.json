@@ -1,0 +1,11 @@
+{
+    "version": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "pulumi": {
+                "version": "3.191"
+            }
+        }
+    }
+}

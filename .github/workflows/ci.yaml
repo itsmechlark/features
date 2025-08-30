@@ -57,6 +57,7 @@ jobs:
           - act
           - doppler
           - postgresql
+          - pulumi
           - rabbitmq-server
           - redis-server
           - snowflake-odbc
@@ -85,6 +86,7 @@ jobs:
           - act
           - doppler
           - postgresql
+          - pulumi
           - rabbitmq-server
           - redis-server
           - snowflake-odbc
