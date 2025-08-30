@@ -9,10 +9,11 @@
             "type": "string",
             "proposals": [
                 "latest",
-                "0.53",
-                "0.52",
-                "0.51",
-                "0.50"
+                "0.65",
+                "0.64",
+                "0.63",
+                "0.62",
+                "0.61"
             ],
             "default": "latest",
             "description": "Select or enter trivy version"
