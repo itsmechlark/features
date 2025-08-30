@@ -6,7 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" op  --version | grep 2.31
+check "version" op  --version | grep 2.32
 
 # Report result
 reportResults
