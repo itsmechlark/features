@@ -2,7 +2,7 @@
 
 CLI_VERSION=${VERSION:-"latest"}
 CLI_ARCHIVE_ARCHITECTURES="amd64 arm64 i386 ppc64el"
-CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic noble"
+CLI_ARCHIVE_VERSION_CODENAMES="bookworm bullseye buster bionic focal jammy kinetic noble trixie"
 
 # Determine the appropriate non-root user
 if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then

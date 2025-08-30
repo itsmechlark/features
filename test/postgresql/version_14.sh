@@ -9,6 +9,7 @@ source dev-container-features-test-lib
 check "etc" ls /etc/postgresql | grep 14
 check "client" psql --version | grep 14
 check "data" sudo cat /var/lib/postgresql/data/PG_VERSION | grep 14
+check "pq-init-exists" bash -c "ls /usr/local/share/pq-init.sh"
 
 # Report result
 reportResults
