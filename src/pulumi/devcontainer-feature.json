@@ -15,6 +15,17 @@
             "description": "Select or enter a pulumi version"
         }
     },
+    "mounts": [
+        {
+            "source": "bind-var-lib-pulumi-${devcontainerId}",
+            "target": "/var/lib/pulumi",
+            "type": "volume"
+        }
+    ],
+    "containerEnv": {
+        "PULUMI_HOME": "/var/lib/pulumi/data"
+    },
+    "entrypoint": "/usr/local/share/pulumi-init.sh",
     "customizations": {
         "vscode": {
             "extensions": [
