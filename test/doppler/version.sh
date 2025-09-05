@@ -6,7 +6,9 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" op  --version | grep 2.31
+check "version" doppler --version | grep 3.70
+check "config" ls /var/lib/doppler
+check "user-config" ls /home/vscode/.doppler
 
 # Report result
 reportResults

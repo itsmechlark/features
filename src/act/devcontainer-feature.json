@@ -1,0 +1,29 @@
+{
+    "name": "act",
+    "id": "act",
+    "version": "1.2.1",
+    "description": "Run your GitHub Actions locally 🚀",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "0.2.71",
+                "0.2.70"
+            ],
+            "default": "latest",
+            "description": "Select or enter a act version"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "github.vscode-github-actions"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/devcontainers/features/docker-in-docker"
+    ]
+}

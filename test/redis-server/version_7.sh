@@ -6,7 +6,8 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" op  --version | grep 2.31
+check "server" redis-server -v | grep 7
+check "client" redis-cli -v | grep 7
 
 # Report result
 reportResults

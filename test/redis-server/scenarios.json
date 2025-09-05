@@ -1,10 +1,10 @@
 {
-    "version": {
+    "version_7": {
         "image": "mcr.microsoft.com/devcontainers/base:jammy",
         "user": "vscode",
         "features": {
-            "1password": {
-                "version": "2.31"
+            "redis-server": {
+                "version": "7"
             }
         }
     }

@@ -6,7 +6,9 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "version" op  --version | grep 2.31
+check "version" doppler  --version
+check "config" ls /var/lib/doppler
+check "doppler-init-exists" bash -c "ls /usr/local/share/doppler-init.sh"
 
 # Report result
 reportResults

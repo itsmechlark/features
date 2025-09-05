@@ -2,7 +2,18 @@
     "all_the_clis": {
         "image": "ubuntu:focal",
         "features": {
-            "1password": {}
+            "1password": {},
+            "act": {},
+            "doppler": {},
+            "trivy": {}
+        }
+    },
+    "all_the_db": {
+        "image": "ubuntu:focal",
+        "features": {
+            "postgresql": {},
+            "rabbitmq-server": {},
+            "redis-server": {}
         }
     }
 }
