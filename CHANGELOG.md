@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/itsmechlark/features/compare/v1.13.0...v1.14.0) (2025-09-22)
+
+
+### Features
+
+* Added Codex ([#64](https://github.com/itsmechlark/features/issues/64)) ([8900b5b](https://github.com/itsmechlark/features/commit/8900b5b4b56ea077afaf65eb5d4e1a060fa4995e))
+
 ## [1.13.0](https://github.com/itsmechlark/features/compare/v1.12.0...v1.13.0) (2025-08-30)
 
 

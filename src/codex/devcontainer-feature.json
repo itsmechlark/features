@@ -1,7 +1,7 @@
 {
     "name": "OpenAI Codex",
     "id": "codex",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Lightweight coding agent that runs in your terminal.",
     "options": {
         "version": {
