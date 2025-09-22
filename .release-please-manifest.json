@@ -1,8 +1,8 @@
 {
-    ".": "1.13.0",
+    ".": "1.14.0",
     "src/1password": "1.5.0",
     "src/act": "1.2.1",
-    "src/codex": "0.0.0",
+    "src/codex": "1.0.0",
     "src/doppler": "2.6.0",
     "src/postgresql": "1.8.0",
     "src/rabbitmq-server": "1.2.0",
