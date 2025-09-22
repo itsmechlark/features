@@ -136,12 +136,44 @@ find_version_from_git_tags CODEX_VERSION https://github.com/openai/codex
 
 CODEX_VERSION="${CODEX_VERSION#"v"}"
 echo "    Using version ${CODEX_VERSION}"
-echo "https://github.com/openai/codex/releases/download/rust-v${CODEX_VERSION}/codex-${architecture}-unknown-linux-gnu.tar.gz"
-curl -sSL -o ${TMP_DIR}/codex.tar.gz "https://github.com/openai/codex/releases/download/rust-v${CODEX_VERSION}/codex-${architecture}-unknown-linux-gnu.tar.gz" \
-    && tar -xzf "${TMP_DIR}/codex.tar.gz" -C "${TMP_DIR}" codex-${architecture}-unknown-linux-gnu \
-    && cp ${TMP_DIR}/codex-${architecture}-unknown-linux-gnu /usr/local/bin/codex \
-    && chmod 0755 /usr/local/bin/codex \
-    && setup_codex
+
+install_codex_binary() {
+    local target archive_url archive_path
+    for target in "$@"; do
+        archive_url="https://github.com/openai/codex/releases/download/rust-v${CODEX_VERSION}/${target}.tar.gz"
+        archive_path="${TMP_DIR}/${target}.tar.gz"
+        echo "    Attempting download for ${target}"
+        if curl -fsSL -o "${archive_path}" "${archive_url}"; then
+            if tar -xzf "${archive_path}" -C "${TMP_DIR}" "${target}"; then
+                cp "${TMP_DIR}/${target}" /usr/local/bin/codex
+                chmod 0755 /usr/local/bin/codex
+                echo "    Installed ${target}"
+                return 0
+            else
+                echo "    Failed to extract ${target}; trying next option" >&2
+            fi
+        else
+            echo "    Failed to download ${archive_url}; trying next option" >&2
+        fi
+    done
+    return 1
+}
+
+codex_targets=()
+# Prefer musl builds when available to stay compatible with older glibc releases.
+case "${architecture}" in
+    x86_64|aarch64)
+        codex_targets+=("codex-${architecture}-unknown-linux-musl")
+        ;;
+esac
+codex_targets+=("codex-${architecture}-unknown-linux-gnu")
+
+if ! install_codex_binary "${codex_targets[@]}"; then
+    echo "    Unable to install codex for architecture ${architecture}" >&2
+    exit 1
+fi
+
+setup_codex
 
 # Clean up
 rm -rf /var/lib/apt/lists/* ${TMP_DIR}
