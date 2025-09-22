@@ -19,7 +19,10 @@
         "vscode": {
             "extensions": [
                 "openai.chatgpt"
-            ]
+            ],
+            "settings": {
+                "chatgpt.cliExecutable": "/usr/local/bin/codex"
+            }
         }
     },
     "mounts": [
