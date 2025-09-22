@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/itsmechlark/features/compare/v1.14.0...v1.15.0) (2025-09-22)
+
+
+### Features
+
+* Set codex cli path for vscode ([#66](https://github.com/itsmechlark/features/issues/66)) ([398ac15](https://github.com/itsmechlark/features/commit/398ac1544f0b0647bf09422c332d8a4d1a14b2c0))
+
 ## [1.14.0](https://github.com/itsmechlark/features/compare/v1.13.0...v1.14.0) (2025-09-22)
 
 
