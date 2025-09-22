@@ -1,0 +1,39 @@
+{
+    "name": "OpenAI Codex",
+    "id": "codex",
+    "version": "0.0.0",
+    "description": "Lightweight coding agent that runs in your terminal.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "0.39",
+                "0.38"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of OpenAI Codex."
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "openai.chatgpt"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "source": "dind-var-lib-codex-${devcontainerId}",
+            "target": "/var/lib/codex/data",
+            "type": "volume"
+        }
+    ],
+    "containerEnv": {
+        "CODEX_HOME": "/var/lib/codex/data"
+    },
+    "entrypoint": "/usr/local/share/codex-init.sh",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

@@ -55,6 +55,7 @@ jobs:
         features:
           - 1password
           - act
+          - codex
           - doppler
           - postgresql
           - pulumi
@@ -84,6 +85,7 @@ jobs:
         features:
           - 1password
           - act
+          - codex
           - doppler
           - postgresql
           - pulumi
