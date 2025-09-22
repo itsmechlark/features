@@ -21,6 +21,12 @@
                 "devcontainer-feature.json"
             ]
         },
+        "src/codex": {
+            "package-name": "codex",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
         "src/doppler": {
             "package-name": "doppler",
             "extra-files": [
