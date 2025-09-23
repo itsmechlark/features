@@ -1,0 +1,37 @@
+{
+    "name": "Valkey",
+    "id": "valkey",
+    "version": "1.0.0",
+    "description": "Valkey, the open source in-memory data store and Redis drop-in replacement, installed from source.",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "8",
+                "7"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version of Valkey to install from source."
+        }
+    },
+    "mounts": [
+        {
+            "source": "dind-var-lib-valkey-${devcontainerId}",
+            "target": "/var/lib/valkey/data",
+            "type": "volume"
+        }
+    ],
+    "entrypoint": "/usr/local/share/valkey-init.sh",
+    "privileged": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "cweijan.vscode-redis-client"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
