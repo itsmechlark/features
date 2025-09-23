@@ -3,46 +3,38 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     if: ${{ contains(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      packages: write
-    steps:
-      - uses: actions/checkout@v5
 
-      - name: "Publish Features"
-        uses: devcontainers/action@v1
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
+        id: app-token
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-issues: write
+          permission-metadata: read
+          permission-packages: write
+          permission-pull-requests: write
+
+      - name: Publish Features
+        uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
         with:
           publish-features: "true"
           base-path-to-features: "./src"
           generate-docs: "true"
-          
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - name: Create PR for Documentation
-      #   id: push_image_info
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     set -e
-      #     echo "Start."
-      #     # Configure git and Push updates
-      #     git config --global user.email github-actions@github.com
-      #     git config --global user.name github-actions
-      #     git config pull.rebase false
-      #     branch=automated-documentation-update-$GITHUB_RUN_ID
-      #     git checkout -b $branch
-      #     message='Automated documentation update'
-      #     # Add / update and commit
-      #     git add */**/README.md
-      #     git commit -m 'Automated documentation update [skip ci]' || export NO_UPDATES=true
-      #     # Push
-      #     if [ "$NO_UPDATES" != "true" ] ; then
-      #         git push origin "$branch"
-      #         gh pr create --title "$message" --body "$message"
-      #     fi
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
