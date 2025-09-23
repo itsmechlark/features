@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/itsmechlark/features/compare/uv-v1.0.0...uv-v1.0.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **uv:** Release as v1.0.1 ([8e99c51](https://github.com/itsmechlark/features/commit/8e99c512ee48a08f2b6c08bd2970d7e42ca65dc9))
+
 ## 1.0.0 (2025-09-23)
 
 
