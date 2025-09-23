@@ -58,11 +58,25 @@ jobs:
           printf 'version=%s\n' "${version}" >> "${GITHUB_OUTPUT}"
           printf 'namespace=%s\n' "${GITHUB_REPOSITORY}" >> "${GITHUB_OUTPUT}"
 
+      - name: Stage feature for publish
+        id: stage
+        run: |
+          set -euo pipefail
+
+          feature='${{ steps.feature.outputs.feature }}'
+          feature_dir='${{ steps.feature.outputs.feature_dir }}'
+
+          staging_dir="$(mktemp -d)"
+          mkdir -p "${staging_dir}/${feature}"
+          cp -R "${feature_dir}/." "${staging_dir}/${feature}/"
+
+          printf 'base_path=%s\n' "${staging_dir}" >> "${GITHUB_OUTPUT}"
+
       - name: Publish Features
         uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
-        working-directory: ${{ steps.feature.outputs.feature_dir }}
         with:
-          publish-features: true
+          publish-features: "true"
+          base-path-to-features: ${{ steps.stage.outputs.base_path }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
