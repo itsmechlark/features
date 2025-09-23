@@ -25,6 +25,7 @@ jobs:
           - snowflake-odbc
           - trivy
           - uv
+          - valkey
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -61,6 +62,7 @@ jobs:
           - snowflake-odbc
           - trivy
           - uv
+          - valkey
     steps:
       - name: Harden runner
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
