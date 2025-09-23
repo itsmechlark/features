@@ -10,5 +10,5 @@
     "src/snowflake-odbc": "1.3.0",
     "src/trivy": "1.2.0",
     "src/pulumi": "1.1.0",
-    "src/uv": "0.0.0"
+    "src/uv": "1.0.0"
 }
