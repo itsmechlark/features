@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/itsmechlark/features/compare/codex-v1.1.0...codex-v1.1.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **codex:** Improve version handling ([bb9f709](https://github.com/itsmechlark/features/commit/bb9f7091e055b2b31e78fce424e9873b555b8f71))
+
 ## [1.1.0](https://github.com/itsmechlark/features/compare/codex-v1.0.0...codex-v1.1.0) (2025-09-22)
 
 
