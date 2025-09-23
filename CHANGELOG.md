@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.3](https://github.com/itsmechlark/features/compare/v1.16.2...v1.16.3) (2025-09-23)
+
+
+### Bug Fixes
+
+* **codex:** Improve version handling ([bb9f709](https://github.com/itsmechlark/features/commit/bb9f7091e055b2b31e78fce424e9873b555b8f71))
+* **uv:** Fixes CD attest ([c0b8691](https://github.com/itsmechlark/features/commit/c0b86915eb629d0e014ccf1bf7ac80f8cabae899))
+
 ## [1.16.2](https://github.com/itsmechlark/features/compare/v1.16.1...v1.16.2) (2025-09-23)
 
 
