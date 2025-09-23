@@ -1,0 +1,88 @@
+name: Audit
+
+on:
+  workflow_call:
+  schedule:
+    - cron: "0 13 * * 1" # Weekly Monday 21:00 Philippine Standard Time (UTC+8) (13:00 UTC)
+
+permissions:
+  contents: read
+
+jobs:
+  trivy:
+    name: Run Trivy Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Run Trivy
+        id: trivy_scan
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8 # v0.33.1
+        with:
+          version: v0.66.0
+          scan-type: fs
+          scan-ref: .
+          trivy-config: trivy.yaml
+          format: sarif
+          output: trivy.sarif
+          cache: true
+
+      - name: Upload SARIF as artifact (PRs)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: trivy-sarif
+          path: trivy.sarif
+
+      - name: Fail if Trivy found issues
+        if: steps.trivy_scan.outcome == 'failure'
+        run: exit 1
+
+  osv:
+    name: Run OSV Scan
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@90b209d0ea55cea1da9fc0c4e65782cc6acb6e2e # v2.2.2
+    permissions:
+      actions: read
+      security-events: write
+      contents: read
+    with:
+      scan-args: |-
+        --recursive
+        ./
+      upload-sarif: true
+
+  gitleaks:
+    name: Run Gitleaks Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Scan repository for secrets
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
