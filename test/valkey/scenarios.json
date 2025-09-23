@@ -1,0 +1,18 @@
+{
+    "latest": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "valkey": {}
+        }
+    },
+    "version_7": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "valkey": {
+                "version": "7"
+            }
+        }
+    }
+}
