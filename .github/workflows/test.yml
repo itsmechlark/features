@@ -16,6 +16,7 @@ jobs:
         features:
           - 1password
           - act
+          - codeql
           - codex
           - doppler
           - postgresql
@@ -53,6 +54,7 @@ jobs:
         features:
           - 1password
           - act
+          - codeql
           - codex
           - doppler
           - postgresql

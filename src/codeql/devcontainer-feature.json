@@ -1,0 +1,23 @@
+{
+    "name": "CodeQL CLI",
+    "id": "codeql",
+    "version": "1.0.0",
+    "description": "GitHub CodeQL CLI for running static analysis queries.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a CodeQL CLI version.",
+            "proposals": [
+                "latest",
+                "2.23",
+                "2.22",
+                "2.21",
+                "2.20"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
