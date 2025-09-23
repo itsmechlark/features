@@ -1,12 +1,5 @@
 # Changelog
 
-## [1.17.0](https://github.com/itsmechlark/features/compare/v1.16.0...v1.17.0) (2025-09-23)
-
-
-### Features
-
-* **uv:** Added uv ([#68](https://github.com/itsmechlark/features/issues/68)) ([4917d99](https://github.com/itsmechlark/features/commit/4917d99b613d96e38f678a92be0fa7d3c0a7885e))
-
 ## [1.16.0](https://github.com/itsmechlark/features/compare/v1.15.0...v1.16.0) (2025-09-23)
 
 
