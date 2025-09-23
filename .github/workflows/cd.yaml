@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   deploy:
-    if: ${{ contains(github.ref, 'refs/tags/v') }}
+    if: ${{ contains(github.event.release.tag_name, '-v') }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -22,10 +22,38 @@ jobs:
 
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
+      - name: Determine feature directory
+        id: feature
+        run: |
+          set -euo pipefail
+
+          tag='${{ github.event.release.tag_name }}'
+          feature="${tag%-v*}"
+
+          if [[ -z "${feature}" || "${feature}" == "${tag}" ]]; then
+            echo "Failed to parse feature name from tag '${tag}'" >&2
+            exit 1
+          fi
+
+          feature_dir="src/${feature}"
+
+          if [[ ! -d "${feature_dir}" ]]; then
+            echo "Expected feature directory '${feature_dir}' to exist" >&2
+            exit 1
+          fi
+
+          if [[ ! -f "${feature_dir}/devcontainer-feature.json" ]]; then
+            echo "Feature manifest '${feature_dir}/devcontainer-feature.json' is missing" >&2
+            exit 1
+          fi
+
+          printf 'feature=%s\n' "${feature}" >> "${GITHUB_OUTPUT}"
+          printf 'feature_dir=%s\n' "${feature_dir}" >> "${GITHUB_OUTPUT}"
+
       - name: Publish Features
         uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
         with:
           publish-features: "true"
-          base-path-to-features: "./src"
+          base-path-to-features: ${{ steps.feature.outputs.feature_dir }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
