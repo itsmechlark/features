@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/itsmechlark/features/compare/uv-v1.0.2...uv-v1.0.3) (2025-09-23)
+
+
+### Bug Fixes
+
+* **uv:** Fixes CD attest ([c0b8691](https://github.com/itsmechlark/features/commit/c0b86915eb629d0e014ccf1bf7ac80f8cabae899))
+
 ## [1.0.2](https://github.com/itsmechlark/features/compare/uv-v1.0.1...uv-v1.0.2) (2025-09-23)
 
 
