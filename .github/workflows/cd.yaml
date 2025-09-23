@@ -1,4 +1,4 @@
-name: Publish Features
+name: CD
 on:
   release:
     types: [published]
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
+  publish-feature:
     if: ${{ contains(github.event.release.tag_name, '-v') }}
     runs-on: ubuntu-latest
     permissions:
@@ -29,9 +29,15 @@ jobs:
 
           tag='${{ github.event.release.tag_name }}'
           feature="${tag%-v*}"
+          version="${tag##*-v}"
 
           if [[ -z "${feature}" || "${feature}" == "${tag}" ]]; then
             echo "Failed to parse feature name from tag '${tag}'" >&2
+            exit 1
+          fi
+
+          if [[ -z "${version}" || "${version}" == "${tag}" ]]; then
+            echo "Failed to parse version from tag '${tag}'" >&2
             exit 1
           fi
 
@@ -49,6 +55,8 @@ jobs:
 
           printf 'feature=%s\n' "${feature}" >> "${GITHUB_OUTPUT}"
           printf 'feature_dir=%s\n' "${feature_dir}" >> "${GITHUB_OUTPUT}"
+          printf 'version=%s\n' "${version}" >> "${GITHUB_OUTPUT}"
+          printf 'namespace=%s\n' "${GITHUB_REPOSITORY}" >> "${GITHUB_OUTPUT}"
 
       - name: Publish Features
         uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
@@ -57,3 +65,76 @@ jobs:
           base-path-to-features: ${{ steps.feature.outputs.feature_dir }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Install crane
+        uses: ./.github/actions/setup-crane
+
+      - name: Resolve digests for published Feature tags
+        id: digest
+        env:
+          FEATURE_REF: ghcr.io/${{ github.repository }}/${{ steps.feature.outputs.feature }}:${{ steps.feature.outputs.version }}
+        run: |
+          set -euo pipefail
+
+          feature_ref="${FEATURE_REF}"
+          image_base="${feature_ref%%:*}"
+          version_tag="${feature_ref##*:}"
+
+          echo "Resolving digests for ${image_base} tags derived from ${version_tag}"
+
+          version_digest="$(crane digest "${image_base}:${version_tag}")"
+
+          IFS='.' read -r major minor patch <<<"${version_tag}"
+
+          if [[ -z "${major}" || -z "${minor}" ]]; then
+            echo "Version '${version_tag}' is not in expected 'major.minor.patch' format" >&2
+            exit 1
+          fi
+
+          minor_tag="${major}.${minor}"
+          minor_digest="$(crane digest "${image_base}:${minor_tag}")"
+
+          major_tag="${major}"
+          major_digest="$(crane digest "${image_base}:${major_tag}")"
+
+          latest_tag="latest"
+          latest_digest="$(crane digest "${image_base}:${latest_tag}")"
+
+          printf 'image_base=%s\n' "${image_base}" >> "$GITHUB_OUTPUT"
+          printf 'version_tag=%s\n' "${version_tag}" >> "$GITHUB_OUTPUT"
+          printf 'version_digest=%s\n' "${version_digest}" >> "$GITHUB_OUTPUT"
+          printf 'minor_tag=%s\n' "${minor_tag}" >> "$GITHUB_OUTPUT"
+          printf 'minor_digest=%s\n' "${minor_digest}" >> "$GITHUB_OUTPUT"
+          printf 'major_tag=%s\n' "${major_tag}" >> "$GITHUB_OUTPUT"
+          printf 'major_digest=%s\n' "${major_digest}" >> "$GITHUB_OUTPUT"
+          printf 'latest_tag=%s\n' "${latest_tag}" >> "$GITHUB_OUTPUT"
+          printf 'latest_digest=%s\n' "${latest_digest}" >> "$GITHUB_OUTPUT"
+
+      - name: Attest feature provenance (version)
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        with:
+          subject-name: ${{ steps.digest.outputs.image_base }}:${{ steps.digest.outputs.version_tag }}
+          subject-digest: ${{ steps.digest.outputs.version_digest }}
+          push-to-registry: true
+
+      - name: Attest feature provenance (minor)
+        if: ${{ steps.digest.outputs.minor_tag != '' }}
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        with:
+          subject-name: ${{ steps.digest.outputs.image_base }}:${{ steps.digest.outputs.minor_tag }}
+          subject-digest: ${{ steps.digest.outputs.minor_digest }}
+          push-to-registry: true
+
+      - name: Attest feature provenance (major)
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        with:
+          subject-name: ${{ steps.digest.outputs.image_base }}:${{ steps.digest.outputs.major_tag }}
+          subject-digest: ${{ steps.digest.outputs.major_digest }}
+          push-to-registry: true
+
+      - name: Attest feature provenance (latest)
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3.0.0
+        with:
+          subject-name: ${{ steps.digest.outputs.image_base }}:${{ steps.digest.outputs.latest_tag }}
+          subject-digest: ${{ steps.digest.outputs.latest_digest }}
+          push-to-registry: true
