@@ -5,7 +5,8 @@
             "1password": {},
             "act": {},
             "doppler": {},
-            "trivy": {}
+            "trivy": {},
+            "uv": {}
         }
     },
     "all_the_db": {

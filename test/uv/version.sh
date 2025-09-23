@@ -6,10 +6,8 @@ set -e
 source dev-container-features-test-lib
 
 # Definition specific tests
-check "check for act" act  --version
-check "check for op" op --version
-check "check for doppler" doppler  --version
-check "check for uv" uv --version
+check "version" uv --version | grep 0.8
+check "version" uvx --version | grep 0.8
 
 # Report result
 reportResults
