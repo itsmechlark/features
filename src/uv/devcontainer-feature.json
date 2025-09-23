@@ -1,7 +1,7 @@
 {
     "name": "uv",
     "id": "uv",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "Fast Python package installer and resolver.",
     "options": {
         "version": {
