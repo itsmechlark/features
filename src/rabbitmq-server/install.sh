@@ -107,21 +107,21 @@ EOF
         sudo tee /etc/apt/sources.list.d/rabbitmq.list <<EOF
 ## Provides modern Erlang/OTP releases
 ##
-deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
-deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
 
 # another mirror for redundancy
-deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
-deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-erlang/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
 
 ## Provides RabbitMQ
 ##
-deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
-deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
 
 # another mirror for redundancy
-deb [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
-deb-src [arch=$(signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
+deb-src [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/rabbitmq.9F4587F226208342.gpg] https://ppa2.novemberain.com/rabbitmq/rabbitmq-server/deb/${RABBITMQ_OS} ${RABBITMQ_DISTRIBUTION} main
 EOF
     fi
 
