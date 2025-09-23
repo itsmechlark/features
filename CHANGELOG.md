@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.16.3](https://github.com/itsmechlark/features/compare/v1.16.2...v1.16.3) (2025-09-23)
+
+
+### Bug Fixes
+
+* **codex:** Improve version handling ([bb9f709](https://github.com/itsmechlark/features/commit/bb9f7091e055b2b31e78fce424e9873b555b8f71))
+* **uv:** Fixes CD attest ([c0b8691](https://github.com/itsmechlark/features/commit/c0b86915eb629d0e014ccf1bf7ac80f8cabae899))
+
+## [1.16.2](https://github.com/itsmechlark/features/compare/v1.16.1...v1.16.2) (2025-09-23)
+
+
+### Bug Fixes
+
+* Published image attest ([fe0ab74](https://github.com/itsmechlark/features/commit/fe0ab74b1dabed2c458ef4525732dd5cb7e1f879))
+* **uv:** Release as v1.0.2 ([a00c56f](https://github.com/itsmechlark/features/commit/a00c56f9c9959689985944e916ac9e3784ffd675))
+
+## [1.16.1](https://github.com/itsmechlark/features/compare/v1.16.0...v1.16.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **uv:** Release as v1.0.1 ([8e99c51](https://github.com/itsmechlark/features/commit/8e99c512ee48a08f2b6c08bd2970d7e42ca65dc9))
+
 ## [1.16.0](https://github.com/itsmechlark/features/compare/v1.15.0...v1.16.0) (2025-09-23)
 
 
