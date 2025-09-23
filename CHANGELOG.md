@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.2](https://github.com/itsmechlark/features/compare/v1.16.1...v1.16.2) (2025-09-23)
+
+
+### Bug Fixes
+
+* Published image attest ([fe0ab74](https://github.com/itsmechlark/features/commit/fe0ab74b1dabed2c458ef4525732dd5cb7e1f879))
+* **uv:** Release as v1.0.2 ([a00c56f](https://github.com/itsmechlark/features/commit/a00c56f9c9959689985944e916ac9e3784ffd675))
+
 ## [1.16.1](https://github.com/itsmechlark/features/compare/v1.16.0...v1.16.1) (2025-09-23)
 
 
