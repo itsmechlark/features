@@ -1,0 +1,32 @@
+{
+    "name": "uv",
+    "id": "uv",
+    "version": "0.0.0",
+    "description": "Fast Python package installer and resolver.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a uv version.",
+            "proposals": [
+                "latest",
+                "0.8",
+                "0.7"
+            ]
+        }
+    },
+    "mounts": [
+        {
+            "source": "dind-var-lib-uv-cache-${devcontainerId}",
+            "target": "/var/lib/uv/cache",
+            "type": "volume"
+        }
+    ],
+    "containerEnv": {
+        "UV_CACHE_DIR": "/var/lib/uv/cache"
+    },
+    "entrypoint": "/usr/local/share/uv-init.sh",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

@@ -68,6 +68,12 @@
             "extra-files": [
                 "devcontainer-feature.json"
             ]
+        },
+        "src/uv": {
+            "package-name": "uv",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
         }
     }
 }
