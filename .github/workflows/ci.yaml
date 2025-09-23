@@ -14,7 +14,6 @@ jobs:
   audit:
     name: Run Security Audit
     uses: ./.github/workflows/audit.yml
-    needs: build
     permissions:
       actions: read
       contents: read
@@ -25,7 +24,6 @@ jobs:
   lint:
     name: Run Linters
     uses: ./.github/workflows/lint.yml
-    needs: build
     secrets: inherit
 
   tests:
