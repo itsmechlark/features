@@ -66,7 +66,20 @@ find_version_from_git_tags() {
             last_part="${escaped_separator}[0-9]+"
         fi
         local regex="${prefix}\\K[0-9]+${escaped_separator}[0-9]+${last_part}$"
-        local version_list="$(git ls-remote --tags ${repository} | grep -oP "${regex}" | tr -d ' ' | tr "${separator}" "." | sort -rV)"
+        local raw_version_list
+        raw_version_list="$(git ls-remote --tags ${repository} | grep -oP "${regex}" | tr -d ' ' | tr "${separator}" "." | sort -rV)"
+        local version_list="${raw_version_list}"
+        if [ -n "${version_list}" ] && { [ "${requested_version}" = "latest" ] || [ "${requested_version}" = "current" ] || [ "${requested_version}" = "lts" ]; }; then
+            local stable_version_list
+            stable_version_list="$(echo "${version_list}" | grep -E '^[0-9]+(\.[0-9]+){1,2}$' || true)"
+            if [ -n "${stable_version_list}" ]; then
+                version_list="${stable_version_list}"
+            fi
+        fi
+        if [ -z "${version_list}" ]; then
+            echo "Unable to determine a valid version from ${repository}" >&2
+            exit 1
+        fi
         if [ "${requested_version}" = "latest" ] || [ "${requested_version}" = "current" ] || [ "${requested_version}" = "lts" ]; then
             declare -g ${variable_name}="$(echo "${version_list}" | head -n 1)"
         else
