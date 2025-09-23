@@ -60,9 +60,9 @@ jobs:
 
       - name: Publish Features
         uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
+        working-directory: ${{ steps.feature.outputs.feature_dir }}
         with:
-          publish-features: "true"
-          base-path-to-features: ${{ steps.feature.outputs.feature_dir }}
+          publish-features: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
