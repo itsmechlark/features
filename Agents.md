@@ -46,6 +46,8 @@ to build and test cleanly.
   falling back to project release archives (GitHub, GitLab, etc.), and support
   version selectors like `stable`, `latest`, and `nightly` by resolving them to
   explicit versions at install time.
+- For new features, set the `devcontainer-feature.json` `version` field to `0.0.0`;
+  release-please manages subsequent bumps.
 - Keep JSON formatted with four-space indentation, stable key ordering, and
   double-quoted strings.
 - Default to ASCII text; add concise comments only when they explain non-obvious
@@ -61,6 +63,7 @@ to build and test cleanly.
       automated tests cover it.
 - [ ] Added the feature to `.release-please-manifest.json` and `release-please-config.json`
       with version `0.0.0`.
+- [ ] Confirmed the new feature's `devcontainer-feature.json` declares `"version": "0.0.0"`.
 - [ ] No `CHANGELOG.md` files were edited; release-please will update them.
 - [ ] All new or modified scripts are executable where required
       (`install.sh`, scenario runners, etc.).
