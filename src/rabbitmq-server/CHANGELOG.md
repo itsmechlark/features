@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/itsmechlark/features/compare/rabbitmq-server-v1.2.0...rabbitmq-server-v1.2.1) (2025-09-25)
+
+
+### Bug Fixes
+
+* **rabbitmq-server:** Use valid apt source ([f87979e](https://github.com/itsmechlark/features/commit/f87979e916f453a5866026c656fcb800b6ef308b))
+
 ## [1.2.0](https://github.com/itsmechlark/features/compare/rabbitmq-server-v1.1.1...rabbitmq-server-v1.2.0) (2025-08-30)
 
 
