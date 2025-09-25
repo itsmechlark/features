@@ -37,6 +37,10 @@ to build and test cleanly.
    ```
    devcontainer features test --global-scenarios-only .
    ```
+6. Regenerate feature documentation whenever you add or modify anything under `src/`:
+   ```
+   devcontainer features generate-docs -p src -n itsmechlark/features --github-owner itsmechlark --github-repo features
+   ```
 
 ## Coding Conventions
 - Shell installers are Bash scripts that begin with `#!/usr/bin/env bash`, use
@@ -64,6 +68,7 @@ to build and test cleanly.
 - [ ] Added the feature to `.release-please-manifest.json` and `release-please-config.json`
       with version `0.0.0`.
 - [ ] Confirmed the new feature's `devcontainer-feature.json` declares `"version": "0.0.0"`.
+- [ ] Regenerated docs for every touched feature and validated the updated `README.md` files.
 - [ ] No `CHANGELOG.md` files were edited; release-please will update them.
 - [ ] All new or modified scripts are executable where required
       (`install.sh`, scenario runners, etc.).
