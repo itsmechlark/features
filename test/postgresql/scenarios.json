@@ -61,5 +61,14 @@
                 "version": "17"
             }
         }
+    },
+    "version_18": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "postgresql": {
+                "version": "18"
+            }
+        }
     }
 }
