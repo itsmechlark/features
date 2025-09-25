@@ -1,7 +1,7 @@
 {
     "name": "SQLite",
     "id": "sqlite",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Installs the SQLite command-line interface and development libraries.",
     "options": {
         "version": {

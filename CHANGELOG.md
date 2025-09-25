@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.17.0](https://github.com/itsmechlark/features/compare/v1.16.3...v1.17.0) (2025-09-25)
+
+
+### Features
+
+* Add codeql ([#77](https://github.com/itsmechlark/features/issues/77)) ([74754d5](https://github.com/itsmechlark/features/commit/74754d53702c6fc10a355822c65608a45b15e516))
+* Add valkey ([#78](https://github.com/itsmechlark/features/issues/78)) ([16cc65d](https://github.com/itsmechlark/features/commit/16cc65da2300827e642f727333e0bd857f3b091d))
+* **sqlite:** Added sqlite ([01fea78](https://github.com/itsmechlark/features/commit/01fea7881bc692ed32ed3a1db99d22837e3e8c00))
+
+
+### Bug Fixes
+
+* **rabbitmq-server:** Use valid apt source ([f87979e](https://github.com/itsmechlark/features/commit/f87979e916f453a5866026c656fcb800b6ef308b))
+
 ## [1.16.3](https://github.com/itsmechlark/features/compare/v1.16.2...v1.16.3) (2025-09-23)
 
 

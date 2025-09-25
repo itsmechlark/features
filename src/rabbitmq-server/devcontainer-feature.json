@@ -1,7 +1,7 @@
 {
     "name": "RabbitMQ Server",
     "id": "rabbitmq-server",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "RabbitMQ is a feature rich, multi-protocol messaging and streaming broker.",
     "options": {
         "version": {
