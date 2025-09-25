@@ -1,7 +1,7 @@
 {
     "name": "cloudflared",
     "id": "cloudflared",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Install the Cloudflare Tunnel client (cloudflared) for exposing local services securely through Cloudflare's network.",
     "documentationURL": "https://github.com/itsmechlark/features/tree/main/src/cloudflared",
     "options": {

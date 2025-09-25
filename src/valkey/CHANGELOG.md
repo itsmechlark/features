@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/itsmechlark/features/compare/valkey-v1.0.0...valkey-v1.0.1) (2025-09-25)
+
+
+### Bug Fixes
+
+* **valkey:** Handle non stable release ([b38a7f8](https://github.com/itsmechlark/features/commit/b38a7f87f0536be1d58d7719bbb18a5abe85f862))
+
 ## 1.0.0 (2025-09-25)
 
 

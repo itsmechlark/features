@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/itsmechlark/features/compare/postgresql-v1.8.0...postgresql-v1.9.0) (2025-09-25)
+
+
+### Features
+
+* **postgresql:** Support v18 ([5886000](https://github.com/itsmechlark/features/commit/58860004ddc123444cdf2659a8a32fa388f8cff7))
+
 ## [1.8.0](https://github.com/itsmechlark/features/compare/postgresql-v1.7.0...postgresql-v1.8.0) (2025-08-30)
 
 

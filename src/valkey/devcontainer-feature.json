@@ -1,7 +1,7 @@
 {
     "name": "Valkey",
     "id": "valkey",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Valkey, the open source in-memory data store and Redis drop-in replacement, installed from source.",
     "options": {
         "version": {
