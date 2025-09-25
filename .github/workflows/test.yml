@@ -24,6 +24,7 @@ jobs:
           - rabbitmq-server
           - redis-server
           - snowflake-odbc
+          - sqlite
           - trivy
           - uv
           - valkey
@@ -62,6 +63,7 @@ jobs:
           - rabbitmq-server
           - redis-server
           - snowflake-odbc
+          - sqlite
           - trivy
           - uv
           - valkey

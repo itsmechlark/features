@@ -12,5 +12,6 @@
     "src/trivy": "1.2.0",
     "src/pulumi": "1.1.0",
     "src/uv": "1.0.3",
-    "src/valkey": "0.0.0"
+    "src/valkey": "0.0.0",
+    "src/sqlite": "0.0.0"
 }

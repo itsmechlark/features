@@ -1,0 +1,22 @@
+{
+    "name": "SQLite",
+    "id": "sqlite",
+    "version": "0.0.0",
+    "description": "Installs the SQLite command-line interface and development libraries.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Select or enter a SQLite version to install (prefix match supported).",
+            "proposals": [
+                "latest",
+                "stable",
+                "3.45",
+                "3.44"
+            ]
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
