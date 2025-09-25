@@ -1,0 +1,24 @@
+{
+    "name": "cloudflared",
+    "id": "cloudflared",
+    "version": "0.0.0",
+    "description": "Install the Cloudflare Tunnel client (cloudflared) for exposing local services securely through Cloudflare's network.",
+    "documentationURL": "https://github.com/itsmechlark/features/tree/main/src/cloudflared",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "stable",
+                "2025.9",
+                "2025.8",
+                "2025.7"
+            ],
+            "default": "latest",
+            "description": "Select or enter the cloudflared version"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

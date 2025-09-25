@@ -21,6 +21,12 @@
                 "devcontainer-feature.json"
             ]
         },
+        "src/cloudflared": {
+            "package-name": "cloudflared",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
         "src/codeql": {
             "package-name": "codeql",
             "extra-files": [
