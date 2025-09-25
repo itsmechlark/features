@@ -74,26 +74,55 @@ find_version_from_git_tags() {
     if [ "${requested_version}" = "latest" ] || [ "${requested_version}" = "stable" ] || [ "${requested_version}" = "lts" ]; then
         if [ -n "${stable_versions}" ]; then
             declare -g ${variable_name}="$(echo "${stable_versions}" | head -n 1)"
-        else
-            declare -g ${variable_name}="$(echo "${version_list}" | head -n 1)"
+            return
         fi
-        return
-    fi
-    local version_regex
-    if echo "${requested_version}" | grep -E "^[0-9]+$" > /dev/null 2>&1; then
-        version_regex="^${requested_version}\\."
-    else
-        version_regex="^${requested_version//./\\.}([\\.-]|$)"
-    fi
-    set +e
-    declare -g ${variable_name}="$(echo "${version_list}" | grep -E -m 1 "${version_regex}")"
-    set -e
-    if [ -z "${!variable_name}" ]; then
-        err "Invalid ${variable_name} value: ${requested_version}"
+        err "No stable releases found for ${variable_name}"
         err "Valid values include:"
         echo "${version_list}" >&2
         exit 1
     fi
+
+    local matched_version=""
+    local qualifier=""
+    local base=""
+
+    case "${requested_version}" in
+        rc|latest-rc|beta|latest-beta|alpha|latest-alpha)
+            qualifier=${requested_version#latest-}
+            matched_version=$(echo "${version_list}" | grep -E -- "-${qualifier}[0-9]*$" | head -n 1 || true)
+            ;;
+        *-rc|*-beta|*-alpha)
+            qualifier=${requested_version##*-}
+            base=${requested_version%-${qualifier}}
+            matched_version=$(echo "${version_list}" | grep -E -- "^${base//./\.}-${qualifier}[0-9]*$" | head -n 1 || true)
+            ;;
+    esac
+
+    if [ -n "${matched_version}" ]; then
+        declare -g ${variable_name}="${matched_version}"
+        return
+    fi
+
+    local version_regex
+    if echo "${requested_version}" | grep -E "^[0-9]+$" > /dev/null 2>&1; then
+        version_regex="^${requested_version}\."
+    else
+        version_regex="^${requested_version//./\.}([\.-]|$)"
+    fi
+
+    set +e
+    matched_version=$(echo "${version_list}" | grep -E -m 1 -- "${version_regex}")
+    set -e
+
+    if [ -n "${matched_version}" ]; then
+        declare -g ${variable_name}="${matched_version}"
+        return
+    fi
+
+    err "Invalid ${variable_name} value: ${requested_version}"
+    err "Valid values include:"
+    echo "${version_list}" >&2
+    exit 1
 }
 
 export DEBIAN_FRONTEND=noninteractive

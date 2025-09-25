@@ -14,5 +14,14 @@
                 "version": "7"
             }
         }
+    },
+    "version_rc": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "user": "vscode",
+        "features": {
+            "valkey": {
+                "version": "rc"
+            }
+        }
     }
 }
