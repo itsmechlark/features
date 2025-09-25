@@ -21,6 +21,12 @@
                 "devcontainer-feature.json"
             ]
         },
+        "src/codeql": {
+            "package-name": "codeql",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
+        },
         "src/codex": {
             "package-name": "codex",
             "extra-files": [
