@@ -31,7 +31,6 @@ jobs:
 
     - name: Shell Linter
       uses: Azbagheri/shell-linter@30a9cf3f6cf25c08fc98f10d7dc4167f7b5c0c00 # v0.8.0
-      continue-on-error: true
       with:
         path: "src/**/*.sh"
         severity: "error" # [style, info, warning, error]
