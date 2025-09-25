@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.18.0](https://github.com/itsmechlark/features/compare/v1.17.0...v1.18.0) (2025-09-25)
+
+
+### Features
+
+* **cloudflared:** Added cloudflared ([cd30da4](https://github.com/itsmechlark/features/commit/cd30da4ce9fece90309c324557221290d4f07ec7))
+* **postgresql:** Support v18 ([5886000](https://github.com/itsmechlark/features/commit/58860004ddc123444cdf2659a8a32fa388f8cff7))
+
+
+### Bug Fixes
+
+* **valkey:** Handle non stable release ([b38a7f8](https://github.com/itsmechlark/features/commit/b38a7f87f0536be1d58d7719bbb18a5abe85f862))
+
 ## [1.17.0](https://github.com/itsmechlark/features/compare/v1.16.3...v1.17.0) (2025-09-25)
 
 
