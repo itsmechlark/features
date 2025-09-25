@@ -80,6 +80,12 @@
             "extra-files": [
                 "devcontainer-feature.json"
             ]
+        },
+        "src/valkey": {
+            "package-name": "valkey",
+            "extra-files": [
+                "devcontainer-feature.json"
+            ]
         }
     }
 }
