@@ -14,7 +14,22 @@ jobs:
       - name: Harden runner
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >-
+            api.github.com:443
+            auth.docker.io:443
+            codeload.github.com:443
+            github.com:443
+            ghcr.io:443
+            mcr.microsoft.com:443
+            objects.githubusercontent.com:443
+            pkg-containers.githubusercontent.com:443
+            pipelines.actions.githubusercontent.com:443
+            production.cloudflare.docker.com:443
+            raw.githubusercontent.com:443
+            registry-1.docker.io:443
+            registry.npmjs.org:443
+            uploads.github.com:443
 
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
@@ -27,10 +42,29 @@ jobs:
   shellchecker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Harden runner
+        uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+        with:
+          egress-policy: block
+          allowed-endpoints: >-
+            api.github.com:443
+            auth.docker.io:443
+            codeload.github.com:443
+            github.com:443
+            ghcr.io:443
+            mcr.microsoft.com:443
+            objects.githubusercontent.com:443
+            pkg-containers.githubusercontent.com:443
+            pipelines.actions.githubusercontent.com:443
+            production.cloudflare.docker.com:443
+            raw.githubusercontent.com:443
+            registry-1.docker.io:443
+            registry.npmjs.org:443
+            uploads.github.com:443
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-    - name: Shell Linter
-      uses: Azbagheri/shell-linter@30a9cf3f6cf25c08fc98f10d7dc4167f7b5c0c00 # v0.8.0
-      with:
-        path: "src/**/*.sh"
-        severity: "error" # [style, info, warning, error]
+      - name: Shell Linter
+        uses: Azbagheri/shell-linter@30a9cf3f6cf25c08fc98f10d7dc4167f7b5c0c00 # v0.8.0
+        with:
+          path: "src/**/*.sh"
+          severity: "error" # [style, info, warning, error]

@@ -40,7 +40,22 @@ jobs:
       - name: Harden runner
         uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >-
+            api.github.com:443
+            auth.docker.io:443
+            codeload.github.com:443
+            github.com:443
+            ghcr.io:443
+            mcr.microsoft.com:443
+            objects.githubusercontent.com:443
+            pkg-containers.githubusercontent.com:443
+            pipelines.actions.githubusercontent.com:443
+            production.cloudflare.docker.com:443
+            raw.githubusercontent.com:443
+            registry-1.docker.io:443
+            registry.npmjs.org:443
+            uploads.github.com:443
 
       - uses: actions/create-github-app-token@67018539274d69449ef7c02e8e71183d1719ab42 # v2.1.4
         id: app-token
