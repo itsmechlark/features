@@ -52,7 +52,7 @@ jobs:
 
   osv:
     name: Run OSV Scan
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@9bb69575e74019c2ad085a1860787043adf47ccb # v2.2.4
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@375a0e8ebdc98e99b02ac4338a724f5750f21213 # v2.3.1
     permissions:
       actions: read
       security-events: write
